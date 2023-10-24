@@ -8,6 +8,7 @@ import (
 	"strconv"
 	"strings"
 	"sync"
+	"sync/atomic"
 	"time"
 
 	"github.com/HdrHistogram/hdrhistogram-go"
@@ -23,6 +24,8 @@ import (
 const (
 	CacheItemTtlSeconds = 60
 )
+
+var counter int64
 
 type topicsLoadGeneratorOptions struct {
 	cacheName         string
@@ -127,9 +130,15 @@ func user(
 	if err != nil {
 		panic(err)
 	}
-	go func() { pollForMessages(ctx, id, subscription, subscribeChan, subscribeErrChan) }()
 	go func() {
+		atomic.AddInt64(&counter, 1)
+		pollForMessages(ctx, id, subscription, subscribeChan, subscribeErrChan)
+		atomic.AddInt64(&counter, -1)
+	}()
+	go func() {
+		atomic.AddInt64(&counter, 1)
 		publishMessages(ctx, id, publishChan, publishErrChan, client, cacheName, topicName, messageValue, publishTps)
+		atomic.AddInt64(&counter, -1)
 	}()
 }
 
@@ -178,6 +187,10 @@ func pollForMessages(
 			return
 		default:
 			item, err := sub.Item(ctx)
+			if err != nil {
+				processError(err, subscribeErrChan)
+				return
+			}
 			timestamp, err := strconv.ParseInt(fmt.Sprintf("%v", item)[0:timestampLength], 10, 64)
 			elapsed := time.Now().UnixMilli() - timestamp
 			if err != nil {
@@ -190,6 +203,12 @@ func pollForMessages(
 }
 
 func processError(err error, errChan chan string) {
+	// for some reason this was surfacing as an unknown error
+	if err == context.DeadlineExceeded {
+		errChan <- momento.TimeoutError
+		return
+	}
+
 	switch mErr := err.(type) {
 	case momento.MomentoError:
 		if mErr.Code() == momento.ServerUnavailableError ||
@@ -238,29 +257,29 @@ func printStats(
 	publishSuccessPct := readablePercentage(successfulPublishRequests, totalPublishRequests)
 
 	fmt.Println("==============================\ncumulative stats:")
-	fmt.Println(fmt.Sprintf(
+	fmt.Printf(
 		"%20s: %d (%d tps)",
 		"total subscription requests",
 		totalSubscriptionRequests,
 		totalSubscriptionTps,
-	))
+	)
 
-	fmt.Println(fmt.Sprintf("%20s: %d (%d%%) (%d tps)", "subscribe success", successfulSubscriptionRequests, subscribeSuccessPct, subscribeSuccessTps))
-	fmt.Println(fmt.Sprintf("%20s: %d (%d%%)", "unavailable", subscribeErrorCounter.unavailable, readablePercentage(subscribeErrorCounter.unavailable, totalSubscriptionRequests)))
-	fmt.Println(fmt.Sprintf("%20s: %d (%d%%)", "timeout exceeded", subscribeErrorCounter.timeout, readablePercentage(subscribeErrorCounter.timeout, totalSubscriptionRequests)))
-	fmt.Println(fmt.Sprintf("%20s: %d (%d%%)\n", "limit exceeded", subscribeErrorCounter.limitExceeded, readablePercentage(subscribeErrorCounter.limitExceeded, totalSubscriptionRequests)))
+	fmt.Printf("%20s: %d (%d%%) (%d tps)", "subscribe success", successfulSubscriptionRequests, subscribeSuccessPct, subscribeSuccessTps)
+	fmt.Printf("%20s: %d (%d%%)", "unavailable", subscribeErrorCounter.unavailable, readablePercentage(subscribeErrorCounter.unavailable, totalSubscriptionRequests))
+	fmt.Printf("%20s: %d (%d%%)", "timeout exceeded", subscribeErrorCounter.timeout, readablePercentage(subscribeErrorCounter.timeout, totalSubscriptionRequests))
+	fmt.Printf("%20s: %d (%d%%)\n", "limit exceeded", subscribeErrorCounter.limitExceeded, readablePercentage(subscribeErrorCounter.limitExceeded, totalSubscriptionRequests))
 
-	fmt.Println(fmt.Sprintf(
+	fmt.Printf(
 		"%20s: %d (%d tps)",
 		"total publish requests",
 		totalPublishRequests,
 		totalPublishTps,
-	))
-	fmt.Println(fmt.Sprintf("%20s: %d (%d%%) (%d tps)", "publish success", successfulPublishRequests, publishSuccessPct, publishSuccessTps))
-	fmt.Println(fmt.Sprintf("%20s: %d (%d%%)", "unavailable", publishErrorCounter.unavailable, readablePercentage(publishErrorCounter.unavailable, totalSubscriptionRequests)))
-	fmt.Println(fmt.Sprintf("%20s: %d (%d%%)", "timeout exceeded", publishErrorCounter.timeout, readablePercentage(publishErrorCounter.timeout, totalSubscriptionRequests)))
-	fmt.Println(fmt.Sprintf("%20s: %d (%d%%)\n", "limit exceeded", publishErrorCounter.limitExceeded, readablePercentage(publishErrorCounter.limitExceeded, totalPublishRequests)))
-	fmt.Println(fmt.Sprintf(
+	)
+	fmt.Printf("%20s: %d (%d%%) (%d tps)", "publish success", successfulPublishRequests, publishSuccessPct, publishSuccessTps)
+	fmt.Printf("%20s: %d (%d%%)", "unavailable", publishErrorCounter.unavailable, readablePercentage(publishErrorCounter.unavailable, totalSubscriptionRequests))
+	fmt.Printf("%20s: %d (%d%%)", "timeout exceeded", publishErrorCounter.timeout, readablePercentage(publishErrorCounter.timeout, totalSubscriptionRequests))
+	fmt.Printf("%20s: %d (%d%%)\n", "limit exceeded", publishErrorCounter.limitExceeded, readablePercentage(publishErrorCounter.limitExceeded, totalPublishRequests))
+	fmt.Printf(
 		"cumulative subscription latencies:\n%20s: %d\n%20s: %d\n%20s: %d\n%20s: %d\n%20s: %d\n%20s: %d\n",
 		"total requests",
 		subscribes.TotalCount(),
@@ -274,8 +293,8 @@ func printStats(
 		subscribes.ValueAtQuantile(99.9),
 		"max",
 		subscribes.Max(),
-	))
-	fmt.Println(fmt.Sprintf(
+	)
+	fmt.Printf(
 		"cumulative publish latencies:\n%20s: %d\n%20s: %d\n%20s: %d\n%20s: %d\n%20s: %d\n%20s: %d\n",
 		"total requests",
 		publishes.TotalCount(),
@@ -289,7 +308,7 @@ func printStats(
 		publishes.ValueAtQuantile(99.9),
 		"max",
 		publishes.Max(),
-	))
+	)
 }
 
 func readablePercentage(numerator int64, denominator int64) int {
@@ -402,7 +421,7 @@ func main() {
 		logLevel:          momento_default_logger.DEBUG,
 		showStatsInterval: time.Second * 5,
 		// must be at least 13 to accommodate an epoch timestamp value to calculate latency
-		messageBytes:   1,
+		messageBytes:   20,
 		numberOfUsers:  10,
 		numberOfTopics: 5,
 		// maxPublishTps is per-user
@@ -412,7 +431,7 @@ func main() {
 
 	lgCfg := config.TopicsDefaultWithLogger(
 		logger.NewNoopMomentoLoggerFactory(),
-	).WithMaxSubscriptions(uint32(opts.numberOfUsers))
+	).WithNumGrpcChannels(1)
 
 	loadGenerator := newLoadGenerator(lgCfg, opts)
 	client, cacheClient := loadGenerator.init(ctx)
@@ -421,6 +440,6 @@ func main() {
 	runStart := time.Now()
 	loadGenerator.run(ctx, client)
 	runTotal := time.Since(runStart)
-	fmt.Println(fmt.Sprintf("completed in %f seconds\n", runTotal.Seconds()))
+	fmt.Printf("completed in %f seconds\n", runTotal.Seconds())
 	client.Close()
 }

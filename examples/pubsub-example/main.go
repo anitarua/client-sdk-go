@@ -7,6 +7,7 @@ import (
 
 	"github.com/momentohq/client-sdk-go/auth"
 	"github.com/momentohq/client-sdk-go/config"
+	"github.com/momentohq/client-sdk-go/config/logger"
 	"github.com/momentohq/client-sdk-go/momento"
 )
 
@@ -24,6 +25,18 @@ func main() {
 	ctx := context.Background()
 	setupCache(cacheClient, ctx)
 
+	i := 0
+	for i = 0; i < 99; i++ {
+		_, err := topicClient.Subscribe(ctx, &momento.TopicSubscribeRequest{
+			CacheName: cacheName,
+			TopicName: topicName,
+		})
+		if err != nil {
+			panic(err)
+		}
+	}
+	fmt.Printf("Subscribed: %d\n", i)
+
 	// Instantiate subscriber
 	sub, err := topicClient.Subscribe(ctx, &momento.TopicSubscribeRequest{
 		CacheName: cacheName,
@@ -32,6 +45,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	fmt.Printf("Subscribed: %d\n", i+1)
 
 	// Receive and print messages in a goroutine
 	go func() { pollForMessages(ctx, sub) }()
@@ -61,8 +75,16 @@ func getTopicClient() momento.TopicClient {
 	if err != nil {
 		panic(err)
 	}
+	config := config.NewTopicConfiguration(&config.TopicsConfigurationProps{
+		LoggerFactory:    logger.NewNoopMomentoLoggerFactory(),
+		MaxSubscriptions: 200,
+		NumGrpcChannels:  1,
+	})
+	fmt.Printf("NumGrpcChannels: %d\n", config.GetNumGrpcChannels())
+	fmt.Printf("MaxSubscriptions: %d\n", config.GetMaxSubscriptions())
+
 	topicClient, err := momento.NewTopicClient(
-		config.TopicsDefault(),
+		config,
 		credProvider,
 	)
 	if err != nil {
