@@ -323,8 +323,8 @@ func timer(
 	publishErrChan chan string,
 	statsInterval time.Duration,
 ) {
-	subscribeHistogram := hdrhistogram.New(1, 5000, 1)
-	publishHistogram := hdrhistogram.New(1, 5000, 1)
+	subscribeHistogram := hdrhistogram.New(1, 50000, 1)
+	publishHistogram := hdrhistogram.New(1, 50000, 1)
 	subscribeErrorCounter := ErrorCounter{}
 	publishErrorCounter := ErrorCounter{}
 
@@ -426,7 +426,7 @@ func main() {
 		numberOfTopics: 5,
 		// maxPublishTps is per-user
 		maxPublishTps: 1,
-		howLongToRun:  time.Second * 60,
+		howLongToRun:  time.Minute * 15,
 	}
 
 	lgCfg := config.TopicsDefaultWithLogger(

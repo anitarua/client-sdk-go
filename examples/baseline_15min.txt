@@ -1,0 +1,3243 @@
+==============================
+cumulative stats:
+total subscription requests: 120 (23 tps)   subscribe success: 120 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 50 (9 tps)     publish success: 50 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+cumulative subscription latencies:
+      total requests: 120
+                 p50: 17
+                 p90: 33
+                 p99: 39
+               p99.9: 41
+                 max: 41
+cumulative publish latencies:
+      total requests: 50
+                 p50: 16
+                 p90: 24
+                 p99: 33
+               p99.9: 33
+                 max: 33
+==============================
+cumulative stats:
+total subscription requests: 240 (23 tps)   subscribe success: 240 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 100 (9 tps)     publish success: 100 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+cumulative subscription latencies:
+      total requests: 240
+                 p50: 17
+                 p90: 24
+                 p99: 39
+               p99.9: 41
+                 max: 41
+cumulative publish latencies:
+      total requests: 100
+                 p50: 16
+                 p90: 21
+                 p99: 33
+               p99.9: 33
+                 max: 33
+==============================
+cumulative stats:
+total subscription requests: 360 (23 tps)   subscribe success: 360 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 150 (9 tps)     publish success: 150 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+cumulative subscription latencies:
+      total requests: 360
+                 p50: 17
+                 p90: 33
+                 p99: 39
+               p99.9: 45
+                 max: 45
+cumulative publish latencies:
+      total requests: 150
+                 p50: 16
+                 p90: 25
+                 p99: 39
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 480 (23 tps)   subscribe success: 480 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 200 (9 tps)     publish success: 200 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+cumulative subscription latencies:
+      total requests: 480
+                 p50: 17
+                 p90: 26
+                 p99: 39
+               p99.9: 45
+                 max: 45
+cumulative publish latencies:
+      total requests: 200
+                 p50: 16
+                 p90: 24
+                 p99: 39
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 600 (23 tps)   subscribe success: 600 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 250 (9 tps)     publish success: 250 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+cumulative subscription latencies:
+      total requests: 600
+                 p50: 17
+                 p90: 28
+                 p99: 43
+               p99.9: 45
+                 max: 45
+cumulative publish latencies:
+      total requests: 250
+                 p50: 16
+                 p90: 25
+                 p99: 39
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 720 (23 tps)   subscribe success: 720 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 300 (9 tps)     publish success: 300 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+cumulative subscription latencies:
+      total requests: 720
+                 p50: 17
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 45
+cumulative publish latencies:
+      total requests: 300
+                 p50: 16
+                 p90: 25
+                 p99: 39
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 840 (23 tps)   subscribe success: 840 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 350 (9 tps)     publish success: 350 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+cumulative subscription latencies:
+      total requests: 840
+                 p50: 17
+                 p90: 27
+                 p99: 39
+               p99.9: 45
+                 max: 45
+cumulative publish latencies:
+      total requests: 350
+                 p50: 16
+                 p90: 25
+                 p99: 39
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 960 (23 tps)   subscribe success: 960 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 400 (9 tps)     publish success: 400 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+cumulative subscription latencies:
+      total requests: 960
+                 p50: 17
+                 p90: 26
+                 p99: 39
+               p99.9: 45
+                 max: 45
+cumulative publish latencies:
+      total requests: 400
+                 p50: 16
+                 p90: 24
+                 p99: 39
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 1080 (23 tps)   subscribe success: 1080 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 450 (9 tps)     publish success: 450 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+cumulative subscription latencies:
+      total requests: 1080
+                 p50: 17
+                 p90: 26
+                 p99: 39
+               p99.9: 45
+                 max: 45
+cumulative publish latencies:
+      total requests: 450
+                 p50: 16
+                 p90: 24
+                 p99: 39
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 1200 (23 tps)   subscribe success: 1200 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 500 (9 tps)     publish success: 500 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+cumulative subscription latencies:
+      total requests: 1200
+                 p50: 17
+                 p90: 25
+                 p99: 39
+               p99.9: 45
+                 max: 45
+cumulative publish latencies:
+      total requests: 500
+                 p50: 16
+                 p90: 23
+                 p99: 37
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 1320 (23 tps)   subscribe success: 1320 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 550 (9 tps)     publish success: 550 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+cumulative subscription latencies:
+      total requests: 1320
+                 p50: 17
+                 p90: 25
+                 p99: 39
+               p99.9: 45
+                 max: 45
+cumulative publish latencies:
+      total requests: 550
+                 p50: 16
+                 p90: 22
+                 p99: 37
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 1413 (23 tps)   subscribe success: 1413 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 590 (9 tps)     publish success: 589 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 1 (1%)
+cumulative subscription latencies:
+      total requests: 1413
+                 p50: 17
+                 p90: 25
+                 p99: 39
+               p99.9: 45
+                 max: 45
+cumulative publish latencies:
+      total requests: 589
+                 p50: 16
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 1533 (23 tps)   subscribe success: 1533 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 640 (9 tps)     publish success: 639 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 1 (1%)
+cumulative subscription latencies:
+      total requests: 1533
+                 p50: 17
+                 p90: 26
+                 p99: 39
+               p99.9: 45
+                 max: 45
+cumulative publish latencies:
+      total requests: 639
+                 p50: 16
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 1651 (23 tps)   subscribe success: 1651 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 690 (9 tps)     publish success: 688 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 2 (1%)
+cumulative subscription latencies:
+      total requests: 1651
+                 p50: 17
+                 p90: 26
+                 p99: 41
+               p99.9: 45
+                 max: 45
+cumulative publish latencies:
+      total requests: 688
+                 p50: 16
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 1771 (23 tps)   subscribe success: 1771 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 740 (9 tps)     publish success: 738 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 2 (1%)
+cumulative subscription latencies:
+      total requests: 1771
+                 p50: 17
+                 p90: 26
+                 p99: 41
+               p99.9: 45
+                 max: 45
+cumulative publish latencies:
+      total requests: 738
+                 p50: 16
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 1891 (23 tps)   subscribe success: 1891 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 790 (9 tps)     publish success: 788 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 2 (1%)
+cumulative subscription latencies:
+      total requests: 1891
+                 p50: 17
+                 p90: 26
+                 p99: 41
+               p99.9: 45
+                 max: 45
+cumulative publish latencies:
+      total requests: 788
+                 p50: 16
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 2011 (23 tps)   subscribe success: 2011 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 840 (9 tps)     publish success: 838 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 2 (1%)
+cumulative subscription latencies:
+      total requests: 2011
+                 p50: 18
+                 p90: 26
+                 p99: 41
+               p99.9: 45
+                 max: 45
+cumulative publish latencies:
+      total requests: 838
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 2131 (23 tps)   subscribe success: 2131 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 890 (9 tps)     publish success: 888 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 2 (1%)
+cumulative subscription latencies:
+      total requests: 2131
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 45
+cumulative publish latencies:
+      total requests: 888
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 2251 (23 tps)   subscribe success: 2251 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 940 (9 tps)     publish success: 938 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 2 (1%)
+cumulative subscription latencies:
+      total requests: 2251
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 45
+cumulative publish latencies:
+      total requests: 938
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 2371 (23 tps)   subscribe success: 2371 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 990 (9 tps)     publish success: 988 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 2 (1%)
+cumulative subscription latencies:
+      total requests: 2371
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 45
+cumulative publish latencies:
+      total requests: 988
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 2491 (23 tps)   subscribe success: 2491 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 1040 (9 tps)     publish success: 1038 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 2 (1%)
+cumulative subscription latencies:
+      total requests: 2491
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 45
+cumulative publish latencies:
+      total requests: 1038
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 2611 (23 tps)   subscribe success: 2611 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 1090 (9 tps)     publish success: 1088 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 2 (1%)
+cumulative subscription latencies:
+      total requests: 2611
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 45
+cumulative publish latencies:
+      total requests: 1088
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 2731 (23 tps)   subscribe success: 2731 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 1140 (9 tps)     publish success: 1138 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 2 (1%)
+cumulative subscription latencies:
+      total requests: 2731
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 49
+cumulative publish latencies:
+      total requests: 1138
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 2839 (23 tps)   subscribe success: 2839 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 1185 (9 tps)     publish success: 1183 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 2 (1%)
+cumulative subscription latencies:
+      total requests: 2839
+                 p50: 18
+                 p90: 26
+                 p99: 41
+               p99.9: 45
+                 max: 49
+cumulative publish latencies:
+      total requests: 1183
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 2945 (23 tps)   subscribe success: 2945 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 1230 (9 tps)     publish success: 1227 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 3 (1%)
+cumulative subscription latencies:
+      total requests: 2945
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 49
+cumulative publish latencies:
+      total requests: 1227
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 3065 (23 tps)   subscribe success: 3065 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 1280 (9 tps)     publish success: 1277 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 3 (1%)
+cumulative subscription latencies:
+      total requests: 3065
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 49
+cumulative publish latencies:
+      total requests: 1277
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 3185 (23 tps)   subscribe success: 3185 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 1330 (9 tps)     publish success: 1327 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 3 (1%)
+cumulative subscription latencies:
+      total requests: 3185
+                 p50: 18
+                 p90: 26
+                 p99: 41
+               p99.9: 45
+                 max: 49
+cumulative publish latencies:
+      total requests: 1327
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 3305 (23 tps)   subscribe success: 3305 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 1380 (9 tps)     publish success: 1377 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 3 (1%)
+cumulative subscription latencies:
+      total requests: 3305
+                 p50: 18
+                 p90: 26
+                 p99: 41
+               p99.9: 45
+                 max: 49
+cumulative publish latencies:
+      total requests: 1377
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 3425 (23 tps)   subscribe success: 3425 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 1430 (9 tps)     publish success: 1427 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 3 (1%)
+cumulative subscription latencies:
+      total requests: 3425
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 49
+cumulative publish latencies:
+      total requests: 1427
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 3545 (23 tps)   subscribe success: 3545 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 1480 (9 tps)     publish success: 1477 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 3 (1%)
+cumulative subscription latencies:
+      total requests: 3545
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 49
+cumulative publish latencies:
+      total requests: 1477
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 3665 (23 tps)   subscribe success: 3665 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 1530 (9 tps)     publish success: 1527 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 3 (1%)
+cumulative subscription latencies:
+      total requests: 3665
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 49
+cumulative publish latencies:
+      total requests: 1527
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 3785 (23 tps)   subscribe success: 3785 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 1580 (9 tps)     publish success: 1577 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 3 (1%)
+cumulative subscription latencies:
+      total requests: 3785
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 49
+cumulative publish latencies:
+      total requests: 1577
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 3904 (23 tps)   subscribe success: 3904 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 1630 (9 tps)     publish success: 1626 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 4 (1%)
+cumulative subscription latencies:
+      total requests: 3904
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 49
+cumulative publish latencies:
+      total requests: 1626
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 4024 (23 tps)   subscribe success: 4024 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 1680 (9 tps)     publish success: 1676 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 4 (1%)
+cumulative subscription latencies:
+      total requests: 4024
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 49
+cumulative publish latencies:
+      total requests: 1676
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 4144 (23 tps)   subscribe success: 4144 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 1730 (9 tps)     publish success: 1726 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 4 (1%)
+cumulative subscription latencies:
+      total requests: 4144
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 49
+cumulative publish latencies:
+      total requests: 1726
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 4264 (23 tps)   subscribe success: 4264 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 1780 (9 tps)     publish success: 1776 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 4 (1%)
+cumulative subscription latencies:
+      total requests: 4264
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 49
+cumulative publish latencies:
+      total requests: 1776
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 4384 (23 tps)   subscribe success: 4384 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 1830 (9 tps)     publish success: 1826 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 4 (1%)
+cumulative subscription latencies:
+      total requests: 4384
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 49
+cumulative publish latencies:
+      total requests: 1826
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 4480 (23 tps)   subscribe success: 4480 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 1870 (9 tps)     publish success: 1866 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 4 (1%)
+cumulative subscription latencies:
+      total requests: 4480
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 49
+cumulative publish latencies:
+      total requests: 1866
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 4600 (23 tps)   subscribe success: 4600 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 1920 (9 tps)     publish success: 1916 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 4 (1%)
+cumulative subscription latencies:
+      total requests: 4600
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 49
+cumulative publish latencies:
+      total requests: 1916
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 4720 (23 tps)   subscribe success: 4720 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 1970 (9 tps)     publish success: 1966 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 4 (1%)
+cumulative subscription latencies:
+      total requests: 4720
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 49
+cumulative publish latencies:
+      total requests: 1966
+                 p50: 17
+                 p90: 22
+                 p99: 30
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 4840 (23 tps)   subscribe success: 4840 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 2020 (9 tps)     publish success: 2016 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 4 (1%)
+cumulative subscription latencies:
+      total requests: 4840
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 49
+cumulative publish latencies:
+      total requests: 2016
+                 p50: 17
+                 p90: 22
+                 p99: 30
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 4960 (23 tps)   subscribe success: 4960 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 2070 (9 tps)     publish success: 2066 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 4 (1%)
+cumulative subscription latencies:
+      total requests: 4960
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 49
+cumulative publish latencies:
+      total requests: 2066
+                 p50: 17
+                 p90: 22
+                 p99: 30
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 5080 (23 tps)   subscribe success: 5080 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 2120 (9 tps)     publish success: 2116 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 4 (1%)
+cumulative subscription latencies:
+      total requests: 5080
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 2116
+                 p50: 17
+                 p90: 22
+                 p99: 30
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 5199 (23 tps)   subscribe success: 5199 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 2170 (9 tps)     publish success: 2165 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 5 (1%)
+cumulative subscription latencies:
+      total requests: 5199
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 2165
+                 p50: 17
+                 p90: 22
+                 p99: 30
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 5319 (23 tps)   subscribe success: 5319 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 2220 (9 tps)     publish success: 2215 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 5 (1%)
+cumulative subscription latencies:
+      total requests: 5319
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 2215
+                 p50: 17
+                 p90: 22
+                 p99: 30
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 5439 (23 tps)   subscribe success: 5439 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 2270 (9 tps)     publish success: 2265 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 5 (1%)
+cumulative subscription latencies:
+      total requests: 5439
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 2265
+                 p50: 17
+                 p90: 22
+                 p99: 30
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 5559 (23 tps)   subscribe success: 5559 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 2320 (9 tps)     publish success: 2315 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 5 (1%)
+cumulative subscription latencies:
+      total requests: 5559
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 2315
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 5676 (23 tps)   subscribe success: 5676 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 2370 (9 tps)     publish success: 2364 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 5676
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 2364
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 5796 (23 tps)   subscribe success: 5796 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 2420 (9 tps)     publish success: 2414 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 5796
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 2414
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 5916 (23 tps)   subscribe success: 5916 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 2470 (9 tps)     publish success: 2464 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 5916
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 2464
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 6012 (23 tps)   subscribe success: 6012 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 2510 (9 tps)     publish success: 2504 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 6012
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 2504
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 6132 (23 tps)   subscribe success: 6132 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 2560 (9 tps)     publish success: 2554 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 6132
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 2554
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 6252 (23 tps)   subscribe success: 6252 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 2610 (9 tps)     publish success: 2604 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 6252
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 2604
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 6372 (23 tps)   subscribe success: 6372 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 2660 (9 tps)     publish success: 2654 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 6372
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 2654
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 6492 (23 tps)   subscribe success: 6492 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 2710 (9 tps)     publish success: 2704 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 6492
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 2704
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 6612 (23 tps)   subscribe success: 6612 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 2760 (9 tps)     publish success: 2754 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 6612
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 2754
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 6732 (23 tps)   subscribe success: 6732 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 2810 (9 tps)     publish success: 2804 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 6732
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 2804
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 6852 (23 tps)   subscribe success: 6852 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 2860 (9 tps)     publish success: 2854 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 6852
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 2854
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 6972 (23 tps)   subscribe success: 6972 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 2910 (9 tps)     publish success: 2904 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 6972
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 2904
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 7092 (23 tps)   subscribe success: 7092 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 2960 (9 tps)     publish success: 2954 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 7092
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 2954
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 7212 (23 tps)   subscribe success: 7212 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3010 (9 tps)     publish success: 3004 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 7212
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 3004
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 7332 (23 tps)   subscribe success: 7332 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3060 (9 tps)     publish success: 3054 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 7332
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 3054
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 7452 (23 tps)   subscribe success: 7452 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3110 (9 tps)     publish success: 3104 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 7452
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 3104
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 7572 (23 tps)   subscribe success: 7572 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3160 (9 tps)     publish success: 3154 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 7572
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 3154
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 7668 (23 tps)   subscribe success: 7668 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3200 (9 tps)     publish success: 3194 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 7668
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 3194
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 39
+==============================
+cumulative stats:
+total subscription requests: 7788 (23 tps)   subscribe success: 7788 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3250 (9 tps)     publish success: 3244 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 7788
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 3244
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 7908 (23 tps)   subscribe success: 7908 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3300 (9 tps)     publish success: 3294 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 7908
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 3294
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 8028 (23 tps)   subscribe success: 8028 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3350 (9 tps)     publish success: 3344 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 8028
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 3344
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 8148 (23 tps)   subscribe success: 8148 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3400 (9 tps)     publish success: 3394 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 8148
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 3394
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 8268 (23 tps)   subscribe success: 8268 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3450 (9 tps)     publish success: 3444 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 8268
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 3444
+                 p50: 17
+                 p90: 21
+                 p99: 31
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 8388 (23 tps)   subscribe success: 8388 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3500 (9 tps)     publish success: 3494 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 8388
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 3494
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 8508 (23 tps)   subscribe success: 8508 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3550 (9 tps)     publish success: 3544 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 8508
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 3544
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 8628 (23 tps)   subscribe success: 8628 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3600 (9 tps)     publish success: 3594 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 8628
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 3594
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 8748 (23 tps)   subscribe success: 8748 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3650 (9 tps)     publish success: 3644 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 8748
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 3644
+                 p50: 17
+                 p90: 21
+                 p99: 31
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 8868 (23 tps)   subscribe success: 8868 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3700 (9 tps)     publish success: 3694 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 8868
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 3694
+                 p50: 17
+                 p90: 21
+                 p99: 31
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 8988 (23 tps)   subscribe success: 8988 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3750 (9 tps)     publish success: 3744 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 8988
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 3744
+                 p50: 17
+                 p90: 21
+                 p99: 31
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 9108 (23 tps)   subscribe success: 9108 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3800 (9 tps)     publish success: 3794 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 9108
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 3794
+                 p50: 17
+                 p90: 21
+                 p99: 31
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 9204 (23 tps)   subscribe success: 9204 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3840 (9 tps)     publish success: 3834 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 9204
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 3834
+                 p50: 17
+                 p90: 21
+                 p99: 31
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 9324 (23 tps)   subscribe success: 9324 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3890 (9 tps)     publish success: 3884 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 9324
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 45
+                 max: 53
+cumulative publish latencies:
+      total requests: 3884
+                 p50: 17
+                 p90: 21
+                 p99: 31
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 9444 (23 tps)   subscribe success: 9444 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3940 (9 tps)     publish success: 3934 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 9444
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 47
+                 max: 59
+cumulative publish latencies:
+      total requests: 3934
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 9564 (23 tps)   subscribe success: 9564 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 3990 (9 tps)     publish success: 3984 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 9564
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 47
+                 max: 59
+cumulative publish latencies:
+      total requests: 3984
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 9684 (23 tps)   subscribe success: 9684 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 4040 (9 tps)     publish success: 4034 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 9684
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 47
+                 max: 59
+cumulative publish latencies:
+      total requests: 4034
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 9804 (23 tps)   subscribe success: 9804 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 4090 (9 tps)     publish success: 4084 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 9804
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 47
+                 max: 59
+cumulative publish latencies:
+      total requests: 4084
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 9924 (23 tps)   subscribe success: 9924 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 4140 (9 tps)     publish success: 4134 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 9924
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 47
+                 max: 59
+cumulative publish latencies:
+      total requests: 4134
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 10044 (23 tps)   subscribe success: 10044 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 4190 (9 tps)     publish success: 4184 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 10044
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 47
+                 max: 59
+cumulative publish latencies:
+      total requests: 4184
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 10164 (23 tps)   subscribe success: 10164 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 4240 (9 tps)     publish success: 4234 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 10164
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 47
+                 max: 59
+cumulative publish latencies:
+      total requests: 4234
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 10284 (23 tps)   subscribe success: 10284 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 4290 (9 tps)     publish success: 4284 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 10284
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 47
+                 max: 59
+cumulative publish latencies:
+      total requests: 4284
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 10404 (23 tps)   subscribe success: 10404 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 4340 (9 tps)     publish success: 4334 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 10404
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 47
+                 max: 59
+cumulative publish latencies:
+      total requests: 4334
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 10524 (23 tps)   subscribe success: 10524 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 4390 (9 tps)     publish success: 4384 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 10524
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 47
+                 max: 59
+cumulative publish latencies:
+      total requests: 4384
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 10644 (23 tps)   subscribe success: 10644 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 4440 (9 tps)     publish success: 4434 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 10644
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 47
+                 max: 59
+cumulative publish latencies:
+      total requests: 4434
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 10740 (23 tps)   subscribe success: 10740 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 4480 (9 tps)     publish success: 4474 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 10740
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 47
+                 max: 59
+cumulative publish latencies:
+      total requests: 4474
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 10860 (23 tps)   subscribe success: 10860 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 4530 (9 tps)     publish success: 4524 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 10860
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 47
+                 max: 59
+cumulative publish latencies:
+      total requests: 4524
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 10980 (23 tps)   subscribe success: 10980 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 4580 (9 tps)     publish success: 4574 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 10980
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 47
+                 max: 59
+cumulative publish latencies:
+      total requests: 4574
+                 p50: 17
+                 p90: 21
+                 p99: 31
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 11100 (23 tps)   subscribe success: 11100 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 4630 (9 tps)     publish success: 4624 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 11100
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 47
+                 max: 59
+cumulative publish latencies:
+      total requests: 4624
+                 p50: 17
+                 p90: 21
+                 p99: 31
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 11220 (23 tps)   subscribe success: 11220 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 4680 (9 tps)     publish success: 4674 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 11220
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 47
+                 max: 59
+cumulative publish latencies:
+      total requests: 4674
+                 p50: 17
+                 p90: 21
+                 p99: 31
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 11340 (23 tps)   subscribe success: 11340 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 4730 (9 tps)     publish success: 4724 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 11340
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 47
+                 max: 59
+cumulative publish latencies:
+      total requests: 4724
+                 p50: 17
+                 p90: 21
+                 p99: 31
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 11460 (23 tps)   subscribe success: 11460 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 4780 (9 tps)     publish success: 4774 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 11460
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 47
+                 max: 59
+cumulative publish latencies:
+      total requests: 4774
+                 p50: 17
+                 p90: 21
+                 p99: 31
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 11580 (23 tps)   subscribe success: 11580 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 4830 (9 tps)     publish success: 4824 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 11580
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 47
+                 max: 59
+cumulative publish latencies:
+      total requests: 4824
+                 p50: 17
+                 p90: 21
+                 p99: 31
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 11700 (23 tps)   subscribe success: 11700 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 4880 (9 tps)     publish success: 4874 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 11700
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 4874
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 11820 (23 tps)   subscribe success: 11820 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 4930 (9 tps)     publish success: 4924 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 11820
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 4924
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 11940 (23 tps)   subscribe success: 11940 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 4980 (9 tps)     publish success: 4974 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 11940
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 4974
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 12060 (23 tps)   subscribe success: 12060 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 5030 (9 tps)     publish success: 5024 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 12060
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 5024
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 12156 (23 tps)   subscribe success: 12156 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 5070 (9 tps)     publish success: 5064 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 12156
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 5064
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 12276 (23 tps)   subscribe success: 12276 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 5120 (9 tps)     publish success: 5114 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 12276
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 5114
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 12396 (23 tps)   subscribe success: 12396 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 5170 (9 tps)     publish success: 5164 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 12396
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 5164
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 12516 (23 tps)   subscribe success: 12516 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 5220 (9 tps)     publish success: 5214 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 12516
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 5214
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 12636 (23 tps)   subscribe success: 12636 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 5270 (9 tps)     publish success: 5264 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 12636
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 5264
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 12756 (23 tps)   subscribe success: 12756 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 5320 (9 tps)     publish success: 5314 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 12756
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 5314
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 12876 (23 tps)   subscribe success: 12876 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 5370 (9 tps)     publish success: 5364 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 12876
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 5364
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 12996 (23 tps)   subscribe success: 12996 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 5420 (9 tps)     publish success: 5414 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 12996
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 5414
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 13116 (23 tps)   subscribe success: 13116 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 5470 (9 tps)     publish success: 5464 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 13116
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 5464
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 39
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 13236 (23 tps)   subscribe success: 13236 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 5520 (9 tps)     publish success: 5514 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 13236
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 5514
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 37
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 13356 (23 tps)   subscribe success: 13356 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 5570 (9 tps)     publish success: 5564 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 13356
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 5564
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 37
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 13476 (23 tps)   subscribe success: 13476 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 5620 (9 tps)     publish success: 5614 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 13476
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 5614
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 37
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 13586 (23 tps)   subscribe success: 13586 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 5667 (9 tps)     publish success: 5661 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 13586
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 5661
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 37
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 13692 (23 tps)   subscribe success: 13692 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 5710 (9 tps)     publish success: 5704 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 13692
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 5704
+                 p50: 17
+                 p90: 21
+                 p99: 33
+               p99.9: 37
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 13812 (23 tps)   subscribe success: 13812 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 5760 (9 tps)     publish success: 5754 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 13812
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 5754
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 37
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 13932 (23 tps)   subscribe success: 13932 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 5810 (9 tps)     publish success: 5804 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 13932
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 5804
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 37
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 14052 (23 tps)   subscribe success: 14052 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 5860 (9 tps)     publish success: 5854 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 14052
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 5854
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 37
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 14172 (23 tps)   subscribe success: 14172 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 5910 (9 tps)     publish success: 5904 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 14172
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 5904
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 37
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 14292 (23 tps)   subscribe success: 14292 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 5960 (9 tps)     publish success: 5954 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 14292
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 5954
+                 p50: 17
+                 p90: 21
+                 p99: 31
+               p99.9: 37
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 14412 (23 tps)   subscribe success: 14412 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6010 (9 tps)     publish success: 6004 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 14412
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 6004
+                 p50: 17
+                 p90: 21
+                 p99: 31
+               p99.9: 37
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 14532 (23 tps)   subscribe success: 14532 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6060 (9 tps)     publish success: 6054 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 14532
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 6054
+                 p50: 17
+                 p90: 21
+                 p99: 31
+               p99.9: 37
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 14652 (23 tps)   subscribe success: 14652 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6110 (9 tps)     publish success: 6104 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 14652
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 6104
+                 p50: 17
+                 p90: 21
+                 p99: 31
+               p99.9: 37
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 14772 (23 tps)   subscribe success: 14772 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6160 (9 tps)     publish success: 6154 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 14772
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 6154
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 37
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 14892 (23 tps)   subscribe success: 14892 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6210 (9 tps)     publish success: 6204 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 14892
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 6204
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 37
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 15012 (23 tps)   subscribe success: 15012 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6260 (9 tps)     publish success: 6254 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 15012
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 6254
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 37
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 15108 (23 tps)   subscribe success: 15108 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6300 (9 tps)     publish success: 6294 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 15108
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 6294
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 37
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 15228 (23 tps)   subscribe success: 15228 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6350 (9 tps)     publish success: 6344 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 15228
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 6344
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 37
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 15348 (23 tps)   subscribe success: 15348 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6400 (9 tps)     publish success: 6394 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 15348
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 6394
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 37
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 15468 (23 tps)   subscribe success: 15468 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6450 (9 tps)     publish success: 6444 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 15468
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 49
+                 max: 59
+cumulative publish latencies:
+      total requests: 6444
+                 p50: 17
+                 p90: 22
+                 p99: 31
+               p99.9: 37
+                 max: 41
+==============================
+cumulative stats:
+total subscription requests: 15588 (23 tps)   subscribe success: 15588 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6500 (9 tps)     publish success: 6494 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 15588
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 51
+                 max: 61
+cumulative publish latencies:
+      total requests: 6494
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 39
+                 max: 47
+==============================
+cumulative stats:
+total subscription requests: 15708 (23 tps)   subscribe success: 15708 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6550 (9 tps)     publish success: 6544 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 15708
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 51
+                 max: 61
+cumulative publish latencies:
+      total requests: 6544
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 37
+                 max: 47
+==============================
+cumulative stats:
+total subscription requests: 15828 (23 tps)   subscribe success: 15828 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6600 (9 tps)     publish success: 6594 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 15828
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 51
+                 max: 61
+cumulative publish latencies:
+      total requests: 6594
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 37
+                 max: 47
+==============================
+cumulative stats:
+total subscription requests: 15948 (23 tps)   subscribe success: 15948 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6650 (9 tps)     publish success: 6644 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 15948
+                 p50: 18
+                 p90: 27
+                 p99: 41
+               p99.9: 51
+                 max: 61
+cumulative publish latencies:
+      total requests: 6644
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 37
+                 max: 47
+==============================
+cumulative stats:
+total subscription requests: 16068 (23 tps)   subscribe success: 16068 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6700 (9 tps)     publish success: 6694 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 16068
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 51
+                 max: 61
+cumulative publish latencies:
+      total requests: 6694
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 37
+                 max: 47
+==============================
+cumulative stats:
+total subscription requests: 16188 (23 tps)   subscribe success: 16188 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6750 (9 tps)     publish success: 6744 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 16188
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 51
+                 max: 61
+cumulative publish latencies:
+      total requests: 6744
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 37
+                 max: 47
+==============================
+cumulative stats:
+total subscription requests: 16308 (23 tps)   subscribe success: 16308 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6800 (9 tps)     publish success: 6794 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 16308
+                 p50: 18
+                 p90: 28
+                 p99: 41
+               p99.9: 55
+                 max: 61
+cumulative publish latencies:
+      total requests: 6794
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 37
+                 max: 47
+==============================
+cumulative stats:
+total subscription requests: 16428 (23 tps)   subscribe success: 16428 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6850 (9 tps)     publish success: 6844 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 16428
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 59
+                 max: 67
+cumulative publish latencies:
+      total requests: 6844
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 16524 (23 tps)   subscribe success: 16524 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6890 (9 tps)     publish success: 6884 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 16524
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 59
+                 max: 67
+cumulative publish latencies:
+      total requests: 6884
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 16644 (23 tps)   subscribe success: 16644 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6940 (9 tps)     publish success: 6934 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 16644
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 59
+                 max: 67
+cumulative publish latencies:
+      total requests: 6934
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 16764 (23 tps)   subscribe success: 16764 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 6990 (9 tps)     publish success: 6984 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 16764
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 59
+                 max: 67
+cumulative publish latencies:
+      total requests: 6984
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 16884 (23 tps)   subscribe success: 16884 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 7040 (9 tps)     publish success: 7034 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 16884
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 59
+                 max: 67
+cumulative publish latencies:
+      total requests: 7034
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 17004 (23 tps)   subscribe success: 17004 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 7090 (9 tps)     publish success: 7084 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 17004
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 59
+                 max: 67
+cumulative publish latencies:
+      total requests: 7084
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 17124 (23 tps)   subscribe success: 17124 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 7140 (9 tps)     publish success: 7134 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 17124
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 59
+                 max: 67
+cumulative publish latencies:
+      total requests: 7134
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 17244 (23 tps)   subscribe success: 17244 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 7190 (9 tps)     publish success: 7184 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 17244
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 59
+                 max: 67
+cumulative publish latencies:
+      total requests: 7184
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 17364 (23 tps)   subscribe success: 17364 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 7240 (9 tps)     publish success: 7234 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 17364
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 59
+                 max: 67
+cumulative publish latencies:
+      total requests: 7234
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 17484 (23 tps)   subscribe success: 17484 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 7290 (9 tps)     publish success: 7284 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 17484
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 59
+                 max: 67
+cumulative publish latencies:
+      total requests: 7284
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 17604 (23 tps)   subscribe success: 17604 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 7340 (9 tps)     publish success: 7334 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 17604
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 7334
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 17724 (23 tps)   subscribe success: 17724 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 7390 (9 tps)     publish success: 7384 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 17724
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 7384
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 17844 (23 tps)   subscribe success: 17844 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 7440 (9 tps)     publish success: 7434 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 17844
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 7434
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 17964 (23 tps)   subscribe success: 17964 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 7490 (9 tps)     publish success: 7484 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 17964
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 7484
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 18060 (23 tps)   subscribe success: 18060 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 7530 (9 tps)     publish success: 7524 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 18060
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 7524
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 18180 (23 tps)   subscribe success: 18180 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 7580 (9 tps)     publish success: 7574 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 18180
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 7574
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 18300 (23 tps)   subscribe success: 18300 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 7630 (9 tps)     publish success: 7624 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 18300
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 7624
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 18420 (23 tps)   subscribe success: 18420 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 7680 (9 tps)     publish success: 7674 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 18420
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 7674
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 18540 (23 tps)   subscribe success: 18540 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 7730 (9 tps)     publish success: 7724 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 18540
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 7724
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 18660 (23 tps)   subscribe success: 18660 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 7780 (9 tps)     publish success: 7774 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 18660
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 7774
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 18780 (23 tps)   subscribe success: 18780 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 7830 (9 tps)     publish success: 7824 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 18780
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 7824
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 18900 (23 tps)   subscribe success: 18900 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 7880 (9 tps)     publish success: 7874 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 18900
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 7874
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 19020 (23 tps)   subscribe success: 19020 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 7930 (9 tps)     publish success: 7924 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 19020
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 7924
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 19140 (23 tps)   subscribe success: 19140 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 7980 (9 tps)     publish success: 7974 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 19140
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 7974
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 19260 (23 tps)   subscribe success: 19260 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 8030 (9 tps)     publish success: 8024 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 19260
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 8024
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 19380 (23 tps)   subscribe success: 19380 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 8080 (9 tps)     publish success: 8074 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 19380
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 8074
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 19500 (23 tps)   subscribe success: 19500 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 8130 (9 tps)     publish success: 8124 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 19500
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 8124
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 19596 (23 tps)   subscribe success: 19596 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 8170 (9 tps)     publish success: 8164 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 19596
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 8164
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 19716 (23 tps)   subscribe success: 19716 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 8220 (9 tps)     publish success: 8214 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 19716
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 8214
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 19836 (23 tps)   subscribe success: 19836 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 8270 (9 tps)     publish success: 8264 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 19836
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 8264
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 19956 (23 tps)   subscribe success: 19956 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 8320 (9 tps)     publish success: 8314 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 19956
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 8314
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 20076 (23 tps)   subscribe success: 20076 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 8370 (9 tps)     publish success: 8364 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 20076
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 8364
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 20196 (23 tps)   subscribe success: 20196 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 8420 (9 tps)     publish success: 8414 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 20196
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 8414
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 20316 (23 tps)   subscribe success: 20316 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 8470 (9 tps)     publish success: 8464 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 20316
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 8464
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 20436 (23 tps)   subscribe success: 20436 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 8520 (9 tps)     publish success: 8514 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 20436
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 8514
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 20556 (23 tps)   subscribe success: 20556 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 8570 (9 tps)     publish success: 8564 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 20556
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 8564
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 20676 (23 tps)   subscribe success: 20676 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 8620 (9 tps)     publish success: 8614 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 20676
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 8614
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 20796 (23 tps)   subscribe success: 20796 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 8670 (9 tps)     publish success: 8664 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 20796
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 8664
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 20916 (23 tps)   subscribe success: 20916 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 8720 (9 tps)     publish success: 8714 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 20916
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 8714
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 21012 (23 tps)   subscribe success: 21012 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 8760 (9 tps)     publish success: 8754 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 21012
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 8754
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+==============================
+cumulative stats:
+total subscription requests: 21132 (23 tps)   subscribe success: 21132 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 0 (0%)
+total publish requests: 8810 (9 tps)     publish success: 8804 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 21132
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 8804
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+
+=====> run complete <=====
+==============================
+cumulative stats:
+total subscription requests: 21207 (23 tps)   subscribe success: 21204 (100%) (23 tps)         unavailable: 0 (0%)    timeout exceeded: 3 (1%)      limit exceeded: 0 (0%)
+total publish requests: 8840 (9 tps)     publish success: 8834 (100%) (9 tps)         unavailable: 0 (0%)    timeout exceeded: 0 (0%)      limit exceeded: 6 (1%)
+cumulative subscription latencies:
+      total requests: 21204
+                 p50: 18
+                 p90: 28
+                 p99: 43
+               p99.9: 57
+                 max: 67
+cumulative publish latencies:
+      total requests: 8834
+                 p50: 17
+                 p90: 22
+                 p99: 33
+               p99.9: 41
+                 max: 51
+completed in 900.005151 seconds
