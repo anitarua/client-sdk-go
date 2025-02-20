@@ -102,14 +102,11 @@ func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 			// Context has been canceled, return an error
 			return nil, ctx.Err()
 		case <-s.cancelContext.Done():
-			// Context has been canceled, return an error
-			// return nil, s.cancelContext.Err()
-
 			// fix the count to avoid excess warning logs
 			numGrpcStreams.Add(-1)
 
-			// for testing, attempt reconnect
-			s.attemptReconnect(ctx)
+			// Context has been canceled, return an error
+			return nil, s.cancelContext.Err()
 		default:
 			// Proceed as is
 		}
@@ -130,11 +127,8 @@ func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 					// fix the count to avoid excess warning logs
 					numGrpcStreams.Add(-1)
 
-					// s.log.Info("Subscription context is cancelled; closing subscription.")
-					// return nil, s.cancelContext.Err()
-
-					// for testing, attempt reconnect
-					s.attemptReconnect(ctx)
+					s.log.Info("Subscription context is cancelled; closing subscription.")
+					return nil, s.cancelContext.Err()
 				}
 			default:
 				{
