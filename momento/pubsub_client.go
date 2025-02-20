@@ -70,13 +70,17 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 }
 
 func (client *pubSubClient) getNextStreamTopicManager() (*grpcmanagers.TopicGrpcManager, momentoerrors.MomentoSvcErr) {
-	// TODO: get next stream topic manager that is not full
+	// get next stream topic manager that is not full (number of stream connections <100)
 	numGrpcManagers := len(client.streamTopicManagers)
 	for i := 0; i < numGrpcManagers; i++ {
 		nextManagerIndex := streamTopicManagerCount.Add(1)
 		topicManager := client.streamTopicManagers[nextManagerIndex%uint64(numGrpcManagers)]
-		if topicManager.NumGrpcStreams.Load() < 100 {
+
+		numStreams := topicManager.NumGrpcStreams.Load()
+		if numStreams < 100 {
 			return topicManager, nil
+		} else {
+			client.log.Debug("Full | grpcmanager %d out of %d | numStreams: %d", i, numGrpcManagers, numStreams)
 		}
 	}
 	return nil, NewMomentoError(momentoerrors.LimitExceededError, "All grpc channels are occupied, cannot send new publish or subscribe requests", nil)

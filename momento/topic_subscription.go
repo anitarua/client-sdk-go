@@ -215,7 +215,7 @@ func (s *topicSubscription) attemptReconnect(ctx context.Context) {
 		if err != nil {
 			s.log.Warn("failed to reconnect to stream, will try again soon")
 		} else {
-			s.log.Info("successfully reconnected to subscription stream")
+			s.log.Info("successfully reconnected to subscription stream, topic manager %d NumGrpcStreams", newTopicManager.NumGrpcStreams.Load())
 			s.topicManager = newTopicManager
 			s.grpcClient = newStream
 			s.cancelContext = cancelContext
