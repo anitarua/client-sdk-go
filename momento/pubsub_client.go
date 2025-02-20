@@ -121,7 +121,6 @@ func (client *pubSubClient) topicPublish(ctx context.Context, request *TopicPubl
 	var header, trailer metadata.MD
 	switch value := request.Value.(type) {
 	case String:
-		numGrpcStreams.Add(1)
 		_, err := topicManager.StreamClient.Publish(requestMetadata, &pb.XPublishRequest{
 			CacheName: request.CacheName,
 			Topic:     request.TopicName,
@@ -131,13 +130,11 @@ func (client *pubSubClient) topicPublish(ctx context.Context, request *TopicPubl
 				},
 			},
 		}, grpc.Header(&header), grpc.Trailer(&trailer))
-		numGrpcStreams.Add(-1)
 		if err != nil {
 			return momentoerrors.ConvertSvcErr(err, header, trailer)
 		}
 		return err
 	case Bytes:
-		numGrpcStreams.Add(1)
 		_, err := topicManager.StreamClient.Publish(requestMetadata, &pb.XPublishRequest{
 			CacheName: request.CacheName,
 			Topic:     request.TopicName,
@@ -147,7 +144,6 @@ func (client *pubSubClient) topicPublish(ctx context.Context, request *TopicPubl
 				},
 			},
 		}, grpc.Header(&header), grpc.Trailer(&trailer))
-		numGrpcStreams.Add(-1)
 		if err != nil {
 			return momentoerrors.ConvertSvcErr(err, header, trailer)
 		}
