@@ -99,6 +99,7 @@ func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 			// Context has been canceled, return an error
 			return nil, ctx.Err()
 		case <-s.cancelContext.Done():
+			// TODO: attempt reconnect upon cancellation
 			// Context has been canceled, return an error
 			return nil, s.cancelContext.Err()
 		default:
@@ -115,6 +116,7 @@ func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 				}
 			case <-s.cancelContext.Done():
 				{
+					// TODO: attempt reconnect upon cancellation
 					s.log.Info("Subscription context is cancelled; closing subscription.")
 					return nil, s.cancelContext.Err()
 				}
@@ -160,6 +162,8 @@ func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 
 func (s *topicSubscription) attemptReconnect(ctx context.Context) {
 	// This will attempt to reconnect indefinetly
+
+	// TODO: exponential backoff with jitter
 	reconnectDelay := 500 * time.Millisecond
 	for {
 		s.log.Info("Attempting reconnecting to client stream")

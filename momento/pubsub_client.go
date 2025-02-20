@@ -76,6 +76,7 @@ func (client *pubSubClient) getNextStreamTopicManager() *grpcmanagers.TopicGrpcM
 	return topicManager
 }
 
+// TODO: somehow set a timer to cancel the subscription context after some time to trigger reconnect
 func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSubscribeRequest) (*grpcmanagers.TopicGrpcManager, grpc.ClientStream, context.Context, context.CancelFunc, error) {
 
 	checkNumConcurrentStreams(client.log)
