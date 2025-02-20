@@ -3,6 +3,8 @@ package momento
 import (
 	"context"
 	"fmt"
+	"math"
+	"math/rand"
 	"time"
 
 	"github.com/momentohq/client-sdk-go/config/logger"
@@ -70,6 +72,7 @@ type topicSubscription struct {
 	lastKnownSequencePage   uint64
 	cancelContext           context.Context
 	cancelFunction          context.CancelFunc
+	reconnectAttemptNumber  int
 }
 
 func (s *topicSubscription) Item(ctx context.Context) (TopicValue, error) {
@@ -127,7 +130,7 @@ func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 					// fix the count to avoid excess warning logs
 					numGrpcStreams.Add(-1)
 
-					s.log.Info("Subscription context is cancelled; closing subscription.")
+					// s.log.Info("Subscription context is cancelled; closing subscription.")
 					return nil, s.cancelContext.Err()
 				}
 			default:
@@ -173,13 +176,34 @@ func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 	}
 }
 
+func randomInRange(min int, max int) int {
+	if min >= max {
+		return min
+	}
+	return min + int(float64(max-min)*rand.Float64())
+}
+
+func (s *topicSubscription) exponentialDelayWithJitter() time.Duration {
+	initialDelayMs := 500
+
+	// previous delay * 3 if reconnectAttemptNumber is >0
+	maxDelayMs := initialDelayMs
+	if s.reconnectAttemptNumber > 0 {
+		maxDelayMs = int(3.0 * float64(initialDelayMs) * math.Pow(2, float64(s.reconnectAttemptNumber-1)))
+	}
+
+	exponentialDelayMs := float64(initialDelayMs) * math.Pow(2, float64(s.reconnectAttemptNumber))
+	jitteredDelayMs := randomInRange(int(exponentialDelayMs), maxDelayMs)
+	return time.Duration(jitteredDelayMs) * time.Millisecond
+}
+
 func (s *topicSubscription) attemptReconnect(ctx context.Context) {
 	// This will attempt to reconnect indefinetly
 
-	// TODO: exponential backoff with jitter
-	reconnectDelay := 500 * time.Millisecond
+	s.reconnectAttemptNumber++
+	reconnectDelay := s.exponentialDelayWithJitter()
 	for {
-		s.log.Info("Attempting reconnecting to client stream")
+		s.log.Info("Attempting reconnecting to client stream after delaying for %d milliseconds", reconnectDelay)
 		time.Sleep(reconnectDelay)
 		newTopicManager, newStream, cancelContext, cancelFunction, err := s.momentoTopicClient.topicSubscribe(ctx, &TopicSubscribeRequest{
 			CacheName:                   s.cacheName,
@@ -189,13 +213,14 @@ func (s *topicSubscription) attemptReconnect(ctx context.Context) {
 		})
 
 		if err != nil {
-			s.log.Warn("failed to reconnect to stream, will continue to try in %s milliseconds", fmt.Sprint(reconnectDelay))
+			s.log.Warn("failed to reconnect to stream, will try again soon")
 		} else {
 			s.log.Info("successfully reconnected to subscription stream")
 			s.topicManager = newTopicManager
 			s.grpcClient = newStream
 			s.cancelContext = cancelContext
 			s.cancelFunction = cancelFunction
+			s.reconnectAttemptNumber = 0
 			return
 		}
 	}
