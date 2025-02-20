@@ -3,7 +3,6 @@ package momento
 import (
 	"context"
 	"math"
-	"sync/atomic"
 
 	"github.com/momentohq/client-sdk-go/config"
 	"github.com/momentohq/client-sdk-go/config/logger"
@@ -23,7 +22,6 @@ type pubSubClient struct {
 	log                 logger.MomentoLogger
 }
 
-var streamTopicManagerCount atomic.Uint64
 var numChannels uint32
 
 func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, momentoerrors.MomentoSvcErr) {
@@ -71,16 +69,9 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 
 func (client *pubSubClient) getNextStreamTopicManager() (*grpcmanagers.TopicGrpcManager, momentoerrors.MomentoSvcErr) {
 	// get next stream topic manager that is not full (number of stream connections <100)
-	numGrpcManagers := len(client.streamTopicManagers)
-	for i := 0; i < numGrpcManagers; i++ {
-		nextManagerIndex := streamTopicManagerCount.Add(1)
-		topicManager := client.streamTopicManagers[nextManagerIndex%uint64(numGrpcManagers)]
-
-		numStreams := topicManager.NumGrpcStreams.Load()
-		if numStreams < 100 {
+	for _, topicManager := range client.streamTopicManagers {
+		if topicManager.NumGrpcStreams.Load() < 100 {
 			return topicManager, nil
-		} else {
-			client.log.Debug("Full | grpcmanager %d out of %d | numStreams: %d", i, numGrpcManagers, numStreams)
 		}
 	}
 	return nil, NewMomentoError(momentoerrors.LimitExceededError, "All grpc channels are occupied, cannot send new publish or subscribe requests", nil)
