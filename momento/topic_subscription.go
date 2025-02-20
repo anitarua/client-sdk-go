@@ -100,13 +100,13 @@ func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 		select {
 		case <-ctx.Done():
 			// fix the count to avoid excess warning logs
-			numGrpcStreams.Add(-1)
+			s.topicManager.NumGrpcStreams.Add(-1)
 
 			// Context has been canceled, return an error
 			return nil, ctx.Err()
 		case <-s.cancelContext.Done():
 			// fix the count to avoid excess warning logs
-			numGrpcStreams.Add(-1)
+			s.topicManager.NumGrpcStreams.Add(-1)
 
 			// Context has been canceled, return an error
 			return nil, s.cancelContext.Err()
@@ -120,7 +120,7 @@ func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 			case <-ctx.Done():
 				{
 					// fix the count to avoid excess warning logs
-					numGrpcStreams.Add(-1)
+					s.topicManager.NumGrpcStreams.Add(-1)
 
 					s.log.Info("Subscription context is done; closing subscription.")
 					return nil, ctx.Err()
@@ -128,7 +128,7 @@ func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 			case <-s.cancelContext.Done():
 				{
 					// fix the count to avoid excess warning logs
-					numGrpcStreams.Add(-1)
+					s.topicManager.NumGrpcStreams.Add(-1)
 
 					// s.log.Info("Subscription context is cancelled; closing subscription.")
 					return nil, s.cancelContext.Err()
@@ -136,7 +136,7 @@ func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 			default:
 				{
 					// fix the count to avoid excess warning logs
-					numGrpcStreams.Add(-1)
+					s.topicManager.NumGrpcStreams.Add(-1)
 
 					// Attempt to reconnect
 					s.log.Error("stream disconnected YO, attempting to reconnect err:", fmt.Sprint(err))
@@ -227,6 +227,6 @@ func (s *topicSubscription) attemptReconnect(ctx context.Context) {
 }
 
 func (s *topicSubscription) Close() {
-	numGrpcStreams.Add(-1)
+	s.topicManager.NumGrpcStreams.Add(-1)
 	s.cancelFunction()
 }
