@@ -4,6 +4,7 @@ import (
 	"context"
 	"math"
 	"sync/atomic"
+	"time"
 
 	"github.com/momentohq/client-sdk-go/config"
 	"github.com/momentohq/client-sdk-go/config/logger"
@@ -110,6 +111,12 @@ func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSu
 	if numGrpcStreams.Load() > 0 && (int64(numChannels*100)-numGrpcStreams.Load() < 10) {
 		client.log.Warn("WARNING: approaching grpc maximum concurrent stream limit, %d remaining of total %d streams\n", int64(numChannels*100)-numGrpcStreams.Load(), numChannels*100)
 	}
+
+	// after some time, trigger a client-side canceled context
+	go func() {
+		time.Sleep(1 * time.Minute)
+		cancelFunction()
+	}()
 
 	return topicManager, clientStream, cancelContext, cancelFunction, err
 }

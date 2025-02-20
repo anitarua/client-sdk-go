@@ -96,12 +96,20 @@ func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 		// item, so we should check that here.
 		select {
 		case <-ctx.Done():
+			// fix the count to avoid excess warning logs
+			numGrpcStreams.Add(-1)
+
 			// Context has been canceled, return an error
 			return nil, ctx.Err()
 		case <-s.cancelContext.Done():
-			// TODO: attempt reconnect upon cancellation
 			// Context has been canceled, return an error
-			return nil, s.cancelContext.Err()
+			// return nil, s.cancelContext.Err()
+
+			// fix the count to avoid excess warning logs
+			numGrpcStreams.Add(-1)
+
+			// for testing, attempt reconnect
+			s.attemptReconnect(ctx)
 		default:
 			// Proceed as is
 		}
@@ -111,17 +119,28 @@ func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 			select {
 			case <-ctx.Done():
 				{
+					// fix the count to avoid excess warning logs
+					numGrpcStreams.Add(-1)
+
 					s.log.Info("Subscription context is done; closing subscription.")
 					return nil, ctx.Err()
 				}
 			case <-s.cancelContext.Done():
 				{
-					// TODO: attempt reconnect upon cancellation
-					s.log.Info("Subscription context is cancelled; closing subscription.")
-					return nil, s.cancelContext.Err()
+					// fix the count to avoid excess warning logs
+					numGrpcStreams.Add(-1)
+
+					// s.log.Info("Subscription context is cancelled; closing subscription.")
+					// return nil, s.cancelContext.Err()
+
+					// for testing, attempt reconnect
+					s.attemptReconnect(ctx)
 				}
 			default:
 				{
+					// fix the count to avoid excess warning logs
+					numGrpcStreams.Add(-1)
+
 					// Attempt to reconnect
 					s.log.Error("stream disconnected YO, attempting to reconnect err:", fmt.Sprint(err))
 					s.attemptReconnect(ctx)
@@ -134,7 +153,7 @@ func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 
 		switch typedMsg := rawMsg.Kind.(type) {
 		case *pb.XSubscriptionItem_Discontinuity:
-			s.log.Debug("received discontinuity item: %+v", typedMsg.Discontinuity)
+			s.log.Trace("received discontinuity item: %+v", typedMsg.Discontinuity)
 			return NewTopicDiscontinuity(typedMsg.Discontinuity.LastTopicSequence, typedMsg.Discontinuity.NewTopicSequence, typedMsg.Discontinuity.NewSequencePage), nil
 		case *pb.XSubscriptionItem_Item:
 			s.lastKnownSequenceNumber = typedMsg.Item.GetTopicSequenceNumber()
