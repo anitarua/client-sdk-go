@@ -5,9 +5,7 @@ import (
 	"fmt"
 	"math"
 	"math/rand"
-	"os"
 	"runtime"
-	"runtime/pprof"
 	"strconv"
 	"strings"
 	"sync"
@@ -133,6 +131,7 @@ func user(
 	go func() {
 		publishMessages(ctx, id, publishChan, publishErrChan, client, cacheName, topicName, messageValue, publishTps)
 	}()
+	fmt.Printf("user %d started\n", id)
 }
 
 func publishMessages(
@@ -362,13 +361,6 @@ func (r *loadGenerator) run(ctx context.Context, client momento.TopicClient) {
 	subscribeErrChan := make(chan string, r.options.numberOfUsers)
 	publishErrChan := make(chan string, r.options.numberOfUsers)
 
-	cpuFile, err := os.Create("cpu.out")
-	if err != nil {
-		panic(err)
-	}
-	defer cpuFile.Close()
-	_ = pprof.StartCPUProfile(cpuFile)
-
 	wg.Add(1)
 	go func() {
 		defer wg.Done()
@@ -406,18 +398,9 @@ func (r *loadGenerator) run(ctx context.Context, client momento.TopicClient) {
 		}()
 	}
 
+	fmt.Println("supposedly kicked off %d users", r.options.numberOfUsers)
 	wg.Wait()
 	fmt.Println("all goroutines done")
-
-	pprof.StopCPUProfile()
-
-	fMem, err := os.Create("mem.out")
-	if err != nil {
-		panic(err)
-	}
-	defer fMem.Close()
-	_ = pprof.WriteHeapProfile(fMem)
-	fmt.Println("heap profile written")
 }
 
 func main() {
@@ -427,19 +410,19 @@ func main() {
 	opts := topicsLoadGeneratorOptions{
 		cacheName:         cacheName,
 		logLevel:          momento_default_logger.DEBUG,
-		showStatsInterval: time.Second * 15,
+		showStatsInterval: time.Second * 30,
 		// must be at least 13 to accommodate an epoch timestamp value to calculate latency
 		messageBytes:   13,
-		numberOfUsers:  100,
+		numberOfUsers:  1500,
 		numberOfTopics: 1,
 		// maxPublishTps is per-user
 		maxPublishTps: 1,
-		howLongToRun:  time.Minute * 3,
+		howLongToRun:  time.Minute * 15,
 	}
 
 	lgCfg := config.TopicsDefaultWithLogger(
 		momento_default_logger.NewDefaultMomentoLoggerFactory(momento_default_logger.DEBUG),
-	).WithNumGrpcChannels(2)
+	).WithNumGrpcChannels(16)
 
 	loadGenerator := newLoadGenerator(lgCfg, opts)
 	client, cacheClient := loadGenerator.init(ctx)

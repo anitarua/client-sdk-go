@@ -59,6 +59,7 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 		}
 		streamTopicManagers = append(streamTopicManagers, streamTopicManager)
 	}
+	request.Log.Info("Successfully created %d grpc channels for pubsub client\n", numChannels)
 
 	return &pubSubClient{
 		streamTopicManagers: streamTopicManagers,
@@ -69,8 +70,12 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 
 func (client *pubSubClient) getNextStreamTopicManager() (*grpcmanagers.TopicGrpcManager, momentoerrors.MomentoSvcErr) {
 	// get next stream topic manager that is not full (number of stream connections <100)
-	for _, topicManager := range client.streamTopicManagers {
-		if topicManager.NumGrpcStreams.Load() < 100 {
+	for i, topicManager := range client.streamTopicManagers {
+		numGrpcStreams := topicManager.NumGrpcStreams.Load()
+		if numGrpcStreams < 100 {
+			if numGrpcStreams > 90 {
+				client.log.Debug("Nearly full grpc manager %d is at %d streams\n", i, numGrpcStreams)
+			}
 			return topicManager, nil
 		}
 	}
@@ -108,9 +113,9 @@ func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSu
 		return nil, nil, nil, nil, momentoerrors.ConvertSvcErr(err, header, trailer)
 	}
 
-	if topicManager.NumGrpcStreams.Load() > 0 && (int64(numChannels*100)-topicManager.NumGrpcStreams.Load() < 10) {
-		client.log.Warn("WARNING: approaching grpc maximum concurrent stream limit, %d remaining of total %d streams\n", int64(numChannels*100)-topicManager.NumGrpcStreams.Load(), numChannels*100)
-	}
+	// if topicManager.NumGrpcStreams.Load() > 0 && (int64(numChannels*100)-topicManager.NumGrpcStreams.Load() < 10) {
+	// 	client.log.Warn("WARNING: approaching grpc maximum concurrent stream limit, %d remaining of total %d streams\n", int64(numChannels*100)-topicManager.NumGrpcStreams.Load(), numChannels*100)
+	// }
 
 	return topicManager, clientStream, cancelContext, cancelFunction, err
 }
