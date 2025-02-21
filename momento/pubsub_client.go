@@ -72,8 +72,8 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 	// Occasionally print out the number of subscriptions per channel
 	go func() {
 		for {
-			// sleep for 30 seconds
-			time.Sleep(30 * time.Second)
+			// sleep for 15 seconds
+			time.Sleep(15 * time.Second)
 
 			// print out the number of subscriptions per channel
 			printout := ""

@@ -137,7 +137,7 @@ func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 
 		switch typedMsg := rawMsg.Kind.(type) {
 		case *pb.XSubscriptionItem_Discontinuity:
-			s.log.Debug("received discontinuity item: %+v", typedMsg.Discontinuity)
+			s.log.Trace("received discontinuity item: %+v", typedMsg.Discontinuity)
 			return NewTopicDiscontinuity(typedMsg.Discontinuity.LastTopicSequence, typedMsg.Discontinuity.NewTopicSequence, typedMsg.Discontinuity.NewSequencePage), nil
 		case *pb.XSubscriptionItem_Item:
 			s.lastKnownSequenceNumber = typedMsg.Item.GetTopicSequenceNumber()
