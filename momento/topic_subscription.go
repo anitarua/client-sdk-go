@@ -98,8 +98,8 @@ func (s *topicSubscription) decrementSubscriptionCount() {
 	for !decremented {
 		currentCount, ok := s.momentoTopicClient.subscriptionsDistribution.Load(int(s.topicManagerId))
 		if ok {
-			incrementedCount := currentCount.(int) + 1
-			decremented = s.momentoTopicClient.subscriptionsDistribution.CompareAndSwap(int(s.topicManagerId), currentCount, incrementedCount)
+			decrementedCount := currentCount.(int) - 1
+			decremented = s.momentoTopicClient.subscriptionsDistribution.CompareAndSwap(int(s.topicManagerId), currentCount, decrementedCount)
 		}
 	}
 }
