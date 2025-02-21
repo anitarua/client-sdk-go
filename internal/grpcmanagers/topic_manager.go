@@ -1,7 +1,7 @@
 package grpcmanagers
 
 import (
-	"sync/atomic"
+	"sync"
 
 	"github.com/momentohq/client-sdk-go/internal/interceptor"
 	"github.com/momentohq/client-sdk-go/internal/models"
@@ -10,10 +10,43 @@ import (
 	"google.golang.org/grpc"
 )
 
+type NumGrpcStreams struct {
+	mu    sync.Mutex
+	count int
+}
+
+func (n *NumGrpcStreams) Increment() momentoerrors.MomentoSvcErr {
+	n.mu.Lock()
+	defer n.mu.Unlock()
+	if n.count == 99 {
+		return momentoerrors.NewMomentoSvcErr(momentoerrors.LimitExceededError, "Maximum number of streams reached", nil)
+	}
+	n.count++
+	return nil
+}
+
+func (n *NumGrpcStreams) Decrement() {
+	n.mu.Lock()
+	defer n.mu.Unlock()
+	n.count--
+}
+
+func (n *NumGrpcStreams) Reset() {
+	n.mu.Lock()
+	defer n.mu.Unlock()
+	n.count = 0
+}
+
+func (n *NumGrpcStreams) Get() int {
+	n.mu.Lock()
+	defer n.mu.Unlock()
+	return n.count
+}
+
 type TopicGrpcManager struct {
 	Conn           *grpc.ClientConn
 	StreamClient   pb.PubsubClient
-	NumGrpcStreams atomic.Int64
+	NumGrpcStreams NumGrpcStreams
 }
 
 func NewStreamTopicGrpcManager(request *models.TopicStreamGrpcManagerRequest) (*TopicGrpcManager, momentoerrors.MomentoSvcErr) {
@@ -44,6 +77,6 @@ func NewStreamTopicGrpcManager(request *models.TopicStreamGrpcManagerRequest) (*
 }
 
 func (topicManager *TopicGrpcManager) Close() momentoerrors.MomentoSvcErr {
-	topicManager.NumGrpcStreams.Store(0)
+	topicManager.NumGrpcStreams.Reset()
 	return momentoerrors.ConvertSvcErr(topicManager.Conn.Close())
 }

@@ -94,7 +94,7 @@ func (c defaultTopicClient) Subscribe(ctx context.Context, request *TopicSubscri
 		}
 
 		if request.ResumeAtTopicSequenceNumber == 0 && request.SequencePage == 0 {
-			c.log.Debug("Starting new subscription from latest messages.")
+			c.log.Trace("Starting new subscription from latest messages.")
 		} else {
 			c.log.Debug("Resuming subscription from sequence number %d and sequence page %d.", request.ResumeAtTopicSequenceNumber, request.SequencePage)
 		}

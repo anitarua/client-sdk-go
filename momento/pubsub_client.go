@@ -70,10 +70,14 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 
 func (client *pubSubClient) getNextStreamTopicManager() (*grpcmanagers.TopicGrpcManager, momentoerrors.MomentoSvcErr) {
 	// get next stream topic manager that is not full (number of stream connections <100)
+	// client.log.Debug("How many grpc channels are there? %d\n", len(client.streamTopicManagers))
 	for i, topicManager := range client.streamTopicManagers {
-		numGrpcStreams := topicManager.NumGrpcStreams.Load()
+		if i > 13 {
+			client.log.Debug("Reached grpc channel %d\n", i)
+		}
+		numGrpcStreams := topicManager.NumGrpcStreams.Get()
 		if numGrpcStreams < 100 {
-			if numGrpcStreams > 90 {
+			if numGrpcStreams > 98 {
 				client.log.Debug("Nearly full grpc manager %d is at %d streams\n", i, numGrpcStreams)
 			}
 			return topicManager, nil
@@ -95,7 +99,11 @@ func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSu
 	cancelContext, cancelFunction := context.WithCancel(requestMetadata)
 
 	var header, trailer metadata.MD
-	topicManager.NumGrpcStreams.Add(1)
+	countErr := topicManager.NumGrpcStreams.Increment()
+	if countErr != nil {
+		// we would have to do something here
+	}
+
 	clientStream, err := topicManager.StreamClient.Subscribe(cancelContext, &pb.XSubscriptionRequest{
 		CacheName:                   request.CacheName,
 		Topic:                       request.TopicName,
