@@ -99,6 +99,7 @@ func (client *pubSubClient) getNextStreamTopicManager(isSubscription bool) (*grp
 	nextManagerIndex := streamTopicManagerCount.Add(1) % uint64(numGrpcManagers)
 	topicManager := client.streamTopicManagers[nextManagerIndex]
 	// if topicManager.NumGrpcStreams.Add(1) < 100 {
+	topicManager.NumGrpcStreams.Add(1)
 	if isSubscription {
 		// safely increment the number of subscriptions on this manager
 		incremented := false
@@ -108,6 +109,11 @@ func (client *pubSubClient) getNextStreamTopicManager(isSubscription bool) (*grp
 				incrementedCount := currentCount.(int) + 1
 				incremented = client.subscriptionsDistribution.CompareAndSwap(int(nextManagerIndex), currentCount, incrementedCount)
 			}
+		}
+	} else {
+		currentNumStreams := topicManager.NumGrpcStreams.Load()
+		if currentNumStreams > 100 {
+			client.log.Debug("Publish queued on channel %d which has %d occupied streams", nextManagerIndex, currentNumStreams)
 		}
 	}
 	return topicManager, nextManagerIndex, nil
