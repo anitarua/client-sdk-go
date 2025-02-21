@@ -2,8 +2,11 @@ package momento
 
 import (
 	"context"
+	"fmt"
 	"math"
+	"sync"
 	"sync/atomic"
+	"time"
 
 	"github.com/momentohq/client-sdk-go/config"
 	"github.com/momentohq/client-sdk-go/config/logger"
@@ -18,9 +21,10 @@ import (
 )
 
 type pubSubClient struct {
-	streamTopicManagers []*grpcmanagers.TopicGrpcManager
-	endpoint            string
-	log                 logger.MomentoLogger
+	streamTopicManagers       []*grpcmanagers.TopicGrpcManager
+	endpoint                  string
+	log                       logger.MomentoLogger
+	subscriptionsDistribution *sync.Map // counts number of topic subscriptions per grpc manager (aka channel)
 }
 
 var streamTopicManagerCount atomic.Uint64
@@ -48,6 +52,7 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 		numChannels = 1
 	}
 	streamTopicManagers := make([]*grpcmanagers.TopicGrpcManager, 0)
+	var subscriptionsDistribution *sync.Map
 
 	// NOTE: This is hard-coded for now but we may want to expose it via TopicConfiguration in the future,
 	// as we do with some of the other clients. Defaults to keep-alive pings enabled.
@@ -61,21 +66,50 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 			return nil, err
 		}
 		streamTopicManagers = append(streamTopicManagers, streamTopicManager)
+		subscriptionsDistribution.Store(i, 0)
 	}
 
+	// Occasionally print out the number of subscriptions per channel
+	go func() {
+		for {
+			// sleep for 30 seconds
+			time.Sleep(30 * time.Second)
+
+			// print out the number of subscriptions per channel
+			printout := ""
+			for i := 0; uint32(i) < numChannels; i++ {
+				count, _ := subscriptionsDistribution.Load(i)
+				printout += fmt.Sprintf("Channel %d: %d subscriptions\n", i, count.(int))
+			}
+			request.Log.Debug(printout)
+		}
+	}()
+
 	return &pubSubClient{
-		streamTopicManagers: streamTopicManagers,
-		endpoint:            request.CredentialProvider.GetCacheEndpoint(),
-		log:                 request.Log,
+		streamTopicManagers:       streamTopicManagers,
+		endpoint:                  request.CredentialProvider.GetCacheEndpoint(),
+		log:                       request.Log,
+		subscriptionsDistribution: subscriptionsDistribution,
 	}, nil
 }
 
-func (client *pubSubClient) getNextStreamTopicManager() (*grpcmanagers.TopicGrpcManager, momentoerrors.MomentoSvcErr) {
+func (client *pubSubClient) getNextStreamTopicManager(isSubscription bool) (*grpcmanagers.TopicGrpcManager, momentoerrors.MomentoSvcErr) {
 	numGrpcManagers := len(client.streamTopicManagers)
 	for i := 0; i < numGrpcManagers; i++ {
-		nextManagerIndex := streamTopicManagerCount.Add(1)
-		topicManager := client.streamTopicManagers[nextManagerIndex%uint64(numGrpcManagers)]
+		nextManagerIndex := streamTopicManagerCount.Add(1) % uint64(numGrpcManagers)
+		topicManager := client.streamTopicManagers[nextManagerIndex]
 		if topicManager.NumGrpcStreams.Add(1) < 100 {
+			if isSubscription {
+				// safely increment the number of subscriptions on this manager
+				incremented := false
+				for !incremented {
+					currentCount, ok := client.subscriptionsDistribution.Load(int(nextManagerIndex))
+					if ok {
+						incrementedCount := currentCount.(int) + 1
+						incremented = client.subscriptionsDistribution.CompareAndSwap(int(nextManagerIndex), currentCount, incrementedCount)
+					}
+				}
+			}
 			return topicManager, nil
 		} else {
 			topicManager.NumGrpcStreams.Add(-1)
@@ -86,7 +120,7 @@ func (client *pubSubClient) getNextStreamTopicManager() (*grpcmanagers.TopicGrpc
 
 func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSubscribeRequest) (*grpcmanagers.TopicGrpcManager, grpc.ClientStream, context.Context, context.CancelFunc, error) {
 
-	topicManager, grpcErr := client.getNextStreamTopicManager()
+	topicManager, grpcErr := client.getNextStreamTopicManager(true)
 	if grpcErr != nil {
 		return nil, nil, nil, nil, grpcErr
 	}
@@ -123,7 +157,7 @@ func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSu
 }
 
 func (client *pubSubClient) topicPublish(ctx context.Context, request *TopicPublishRequest) error {
-	topicManager, grpcErr := client.getNextStreamTopicManager()
+	topicManager, grpcErr := client.getNextStreamTopicManager(false)
 	if grpcErr != nil {
 		return grpcErr
 	}

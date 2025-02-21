@@ -13,7 +13,7 @@ import (
 type TopicGrpcManager struct {
 	Conn           *grpc.ClientConn
 	StreamClient   pb.PubsubClient
-	NumGrpcStreams atomic.Int64
+	NumGrpcStreams atomic.Int64 // count of multiplex streams in use
 }
 
 func NewStreamTopicGrpcManager(request *models.TopicStreamGrpcManagerRequest) (*TopicGrpcManager, momentoerrors.MomentoSvcErr) {

@@ -419,7 +419,7 @@ func main() {
 	}
 
 	lgCfg := config.TopicsDefaultWithLogger(
-		logger.NewNoopMomentoLoggerFactory(),
+		momento_default_logger.NewDefaultMomentoLoggerFactory(momento_default_logger.DEBUG),
 	).WithNumGrpcChannels(16)
 
 	loadGenerator := newLoadGenerator(lgCfg, opts)
