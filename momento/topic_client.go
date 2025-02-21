@@ -106,6 +106,7 @@ func (c defaultTopicClient) Subscribe(ctx context.Context, request *TopicSubscri
 			rpcError, _ := status.FromError(err)
 			if rpcError != nil {
 				if rpcError.Code() == codes.ResourceExhausted {
+					c.log.Debug("Could not subscribe: %s", rpcError.Message())
 					c.log.Info("Topic subscription limit reached, checking to see if subscription is eligible for retry")
 					continue
 				}
@@ -167,7 +168,7 @@ func (c defaultTopicClient) Publish(ctx context.Context, request *TopicPublishRe
 	})
 
 	if err != nil {
-		c.log.Debug("failed to topic publish...")
+		c.log.Debug("failed to topic publish: %s", err.Error())
 		return nil, err
 	}
 
