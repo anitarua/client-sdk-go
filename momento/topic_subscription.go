@@ -61,6 +61,7 @@ type TopicSubscription interface {
 
 type topicSubscription struct {
 	topicManager            *grpcmanagers.TopicGrpcManager
+	topicManagerId          uint64
 	grpcClient              grpc.ClientStream
 	momentoTopicClient      *pubSubClient
 	cacheName               string
@@ -90,6 +91,19 @@ func (s *topicSubscription) Item(ctx context.Context) (TopicValue, error) {
 	}
 }
 
+func (s *topicSubscription) decrementSubscriptionCount() {
+	s.topicManager.NumGrpcStreams.Add(-1)
+
+	decremented := false
+	for !decremented {
+		currentCount, ok := s.momentoTopicClient.subscriptionsDistribution.Load(int(s.topicManagerId))
+		if ok {
+			incrementedCount := currentCount.(int) + 1
+			decremented = s.momentoTopicClient.subscriptionsDistribution.CompareAndSwap(int(s.topicManagerId), currentCount, incrementedCount)
+		}
+	}
+}
+
 func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 	for {
 		// Its totally possible a client just calls `cancel` on the `context` immediately after subscribing to an
@@ -97,11 +111,11 @@ func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 		select {
 		case <-ctx.Done():
 			// Context has been canceled, return an error
-			s.topicManager.NumGrpcStreams.Add(-1)
+			s.decrementSubscriptionCount()
 			return nil, ctx.Err()
 		case <-s.cancelContext.Done():
 			// Context has been canceled, return an error
-			s.topicManager.NumGrpcStreams.Add(-1)
+			s.decrementSubscriptionCount()
 			return nil, s.cancelContext.Err()
 		default:
 			// Proceed as is
@@ -113,20 +127,20 @@ func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 			case <-ctx.Done():
 				{
 					s.log.Info("Subscription context is done; closing subscription.")
-					s.topicManager.NumGrpcStreams.Add(-1)
+					s.decrementSubscriptionCount()
 					return nil, ctx.Err()
 				}
 			case <-s.cancelContext.Done():
 				{
 					s.log.Info("Subscription context is cancelled; closing subscription.")
-					s.topicManager.NumGrpcStreams.Add(-1)
+					s.decrementSubscriptionCount()
 					return nil, s.cancelContext.Err()
 				}
 			default:
 				{
 					// Attempt to reconnect
 					s.log.Error("stream disconnected YO, attempting to reconnect err:", fmt.Sprint(err))
-					s.topicManager.NumGrpcStreams.Add(-1)
+					s.decrementSubscriptionCount()
 					s.attemptReconnect(ctx)
 				}
 			}
@@ -169,7 +183,7 @@ func (s *topicSubscription) attemptReconnect(ctx context.Context) {
 	for {
 		s.log.Info("Attempting reconnecting to client stream")
 		time.Sleep(reconnectDelay)
-		newTopicManager, newStream, cancelContext, cancelFunction, err := s.momentoTopicClient.topicSubscribe(ctx, &TopicSubscribeRequest{
+		newTopicManager, newStream, cancelContext, cancelFunction, topicManagerId, err := s.momentoTopicClient.topicSubscribe(ctx, &TopicSubscribeRequest{
 			CacheName:                   s.cacheName,
 			TopicName:                   s.topicName,
 			ResumeAtTopicSequenceNumber: s.lastKnownSequenceNumber,
@@ -184,12 +198,13 @@ func (s *topicSubscription) attemptReconnect(ctx context.Context) {
 			s.grpcClient = newStream
 			s.cancelContext = cancelContext
 			s.cancelFunction = cancelFunction
+			s.topicManagerId = topicManagerId
 			return
 		}
 	}
 }
 
 func (s *topicSubscription) Close() {
-	s.topicManager.NumGrpcStreams.Add(-1)
+	s.decrementSubscriptionCount()
 	s.cancelFunction()
 }

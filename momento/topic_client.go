@@ -73,6 +73,7 @@ func (c defaultTopicClient) Subscribe(ctx context.Context, request *TopicSubscri
 	var cancelContext context.Context
 	var cancelFunction context.CancelFunc
 	var err error
+	var topicManagerId uint64
 
 	firstMsg := new(pb.XSubscriptionItem)
 
@@ -83,7 +84,7 @@ func (c defaultTopicClient) Subscribe(ctx context.Context, request *TopicSubscri
 			time.Sleep(500 * time.Millisecond)
 		}
 
-		topicManager, clientStream, cancelContext, cancelFunction, err = c.pubSubClient.topicSubscribe(ctx, &TopicSubscribeRequest{
+		topicManager, clientStream, cancelContext, cancelFunction, topicManagerId, err = c.pubSubClient.topicSubscribe(ctx, &TopicSubscribeRequest{
 			CacheName:                   request.CacheName,
 			TopicName:                   request.TopicName,
 			ResumeAtTopicSequenceNumber: request.ResumeAtTopicSequenceNumber,
@@ -134,6 +135,7 @@ func (c defaultTopicClient) Subscribe(ctx context.Context, request *TopicSubscri
 
 	return &topicSubscription{
 		topicManager:       topicManager,
+		topicManagerId:     topicManagerId,
 		grpcClient:         clientStream,
 		momentoTopicClient: c.pubSubClient,
 		cacheName:          request.CacheName,

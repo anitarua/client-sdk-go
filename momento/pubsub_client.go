@@ -93,36 +93,36 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 	}, nil
 }
 
-func (client *pubSubClient) getNextStreamTopicManager(isSubscription bool) (*grpcmanagers.TopicGrpcManager, momentoerrors.MomentoSvcErr) {
+func (client *pubSubClient) getNextStreamTopicManager(isSubscription bool) (*grpcmanagers.TopicGrpcManager, uint64, momentoerrors.MomentoSvcErr) {
 	numGrpcManagers := len(client.streamTopicManagers)
-	for i := 0; i < numGrpcManagers; i++ {
-		nextManagerIndex := streamTopicManagerCount.Add(1) % uint64(numGrpcManagers)
-		topicManager := client.streamTopicManagers[nextManagerIndex]
-		if topicManager.NumGrpcStreams.Add(1) < 100 {
-			if isSubscription {
-				// safely increment the number of subscriptions on this manager
-				incremented := false
-				for !incremented {
-					currentCount, ok := client.subscriptionsDistribution.Load(int(nextManagerIndex))
-					if ok {
-						incrementedCount := currentCount.(int) + 1
-						incremented = client.subscriptionsDistribution.CompareAndSwap(int(nextManagerIndex), currentCount, incrementedCount)
-					}
-				}
+	// for i := 0; i < numGrpcManagers; i++ {
+	nextManagerIndex := streamTopicManagerCount.Add(1) % uint64(numGrpcManagers)
+	topicManager := client.streamTopicManagers[nextManagerIndex]
+	// if topicManager.NumGrpcStreams.Add(1) < 100 {
+	if isSubscription {
+		// safely increment the number of subscriptions on this manager
+		incremented := false
+		for !incremented {
+			currentCount, ok := client.subscriptionsDistribution.Load(int(nextManagerIndex))
+			if ok {
+				incrementedCount := currentCount.(int) + 1
+				incremented = client.subscriptionsDistribution.CompareAndSwap(int(nextManagerIndex), currentCount, incrementedCount)
 			}
-			return topicManager, nil
-		} else {
-			topicManager.NumGrpcStreams.Add(-1)
 		}
 	}
-	return nil, NewMomentoError(momentoerrors.LimitExceededError, "All grpc channels are occupied, cannot send new publish or subscribe requests", nil)
+	return topicManager, nextManagerIndex, nil
+	// } else {
+	// 	topicManager.NumGrpcStreams.Add(-1)
+	// }
+	// }
+	// return nil, NewMomentoError(momentoerrors.LimitExceededError, "All grpc channels are occupied, cannot send new publish or subscribe requests", nil)
 }
 
-func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSubscribeRequest) (*grpcmanagers.TopicGrpcManager, grpc.ClientStream, context.Context, context.CancelFunc, error) {
+func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSubscribeRequest) (*grpcmanagers.TopicGrpcManager, grpc.ClientStream, context.Context, context.CancelFunc, uint64, error) {
 
-	topicManager, grpcErr := client.getNextStreamTopicManager(true)
+	topicManager, topicManagerId, grpcErr := client.getNextStreamTopicManager(true)
 	if grpcErr != nil {
-		return nil, nil, nil, nil, grpcErr
+		return nil, nil, nil, nil, 0, grpcErr
 	}
 
 	// add metadata to context
@@ -146,18 +146,18 @@ func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSu
 			header, _ = clientStream.Header()
 			trailer = clientStream.Trailer()
 		}
-		return nil, nil, nil, nil, momentoerrors.ConvertSvcErr(err, header, trailer)
+		return nil, nil, nil, nil, 0, momentoerrors.ConvertSvcErr(err, header, trailer)
 	}
 
 	if numGrpcStreams.Load() > 0 && (int64(numChannels*100)-numGrpcStreams.Load() < 10) {
 		client.log.Warn("WARNING: approaching grpc maximum concurrent stream limit, %d remaining of total %d streams\n", int64(numChannels*100)-numGrpcStreams.Load(), numChannels*100)
 	}
 
-	return topicManager, clientStream, cancelContext, cancelFunction, err
+	return topicManager, clientStream, cancelContext, cancelFunction, topicManagerId, err
 }
 
 func (client *pubSubClient) topicPublish(ctx context.Context, request *TopicPublishRequest) error {
-	topicManager, grpcErr := client.getNextStreamTopicManager(false)
+	topicManager, _, grpcErr := client.getNextStreamTopicManager(false)
 	if grpcErr != nil {
 		return grpcErr
 	}
