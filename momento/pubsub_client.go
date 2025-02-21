@@ -70,15 +70,26 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 	}, nil
 }
 
-func (client *pubSubClient) getNextStreamTopicManager() *grpcmanagers.TopicGrpcManager {
-	nextManagerIndex := streamTopicManagerCount.Add(1)
-	topicManager := client.streamTopicManagers[nextManagerIndex%uint64(len(client.streamTopicManagers))]
-	return topicManager
+func (client *pubSubClient) getNextStreamTopicManager() (*grpcmanagers.TopicGrpcManager, momentoerrors.MomentoSvcErr) {
+	numGrpcManagers := len(client.streamTopicManagers)
+	for i := 0; i < numGrpcManagers; i++ {
+		nextManagerIndex := streamTopicManagerCount.Add(1)
+		topicManager := client.streamTopicManagers[nextManagerIndex%uint64(numGrpcManagers)]
+		if topicManager.NumGrpcStreams.Add(1) < 100 {
+			return topicManager, nil
+		} else {
+			topicManager.NumGrpcStreams.Add(-1)
+		}
+	}
+	return nil, NewMomentoError(momentoerrors.LimitExceededError, "All grpc channels are occupied, cannot send new publish or subscribe requests", nil)
 }
 
 func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSubscribeRequest) (*grpcmanagers.TopicGrpcManager, grpc.ClientStream, context.Context, context.CancelFunc, error) {
 
-	checkNumConcurrentStreams(client.log)
+	topicManager, grpcErr := client.getNextStreamTopicManager()
+	if grpcErr != nil {
+		return nil, nil, nil, nil, grpcErr
+	}
 
 	// add metadata to context
 	requestMetadata := internal.CreateMetadata(ctx, internal.Topic)
@@ -87,8 +98,6 @@ func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSu
 	cancelContext, cancelFunction := context.WithCancel(requestMetadata)
 
 	var header, trailer metadata.MD
-	numGrpcStreams.Add(1)
-	topicManager := client.getNextStreamTopicManager()
 	clientStream, err := topicManager.StreamClient.Subscribe(cancelContext, &pb.XSubscriptionRequest{
 		CacheName:                   request.CacheName,
 		Topic:                       request.TopicName,
@@ -97,7 +106,7 @@ func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSu
 	})
 
 	if err != nil {
-		numGrpcStreams.Add(-1)
+		topicManager.NumGrpcStreams.Add(-1)
 		cancelFunction()
 		if clientStream != nil {
 			header, _ = clientStream.Header()
@@ -114,14 +123,15 @@ func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSu
 }
 
 func (client *pubSubClient) topicPublish(ctx context.Context, request *TopicPublishRequest) error {
-	checkNumConcurrentStreams(client.log)
+	topicManager, grpcErr := client.getNextStreamTopicManager()
+	if grpcErr != nil {
+		return grpcErr
+	}
 
 	requestMetadata := internal.CreateMetadata(ctx, internal.Topic)
-	topicManager := client.getNextStreamTopicManager()
 	var header, trailer metadata.MD
 	switch value := request.Value.(type) {
 	case String:
-		numGrpcStreams.Add(1)
 		_, err := topicManager.StreamClient.Publish(requestMetadata, &pb.XPublishRequest{
 			CacheName: request.CacheName,
 			Topic:     request.TopicName,
@@ -131,13 +141,12 @@ func (client *pubSubClient) topicPublish(ctx context.Context, request *TopicPubl
 				},
 			},
 		}, grpc.Header(&header), grpc.Trailer(&trailer))
-		numGrpcStreams.Add(-1)
+		topicManager.NumGrpcStreams.Add(-1)
 		if err != nil {
 			return momentoerrors.ConvertSvcErr(err, header, trailer)
 		}
 		return err
 	case Bytes:
-		numGrpcStreams.Add(1)
 		_, err := topicManager.StreamClient.Publish(requestMetadata, &pb.XPublishRequest{
 			CacheName: request.CacheName,
 			Topic:     request.TopicName,
@@ -147,7 +156,7 @@ func (client *pubSubClient) topicPublish(ctx context.Context, request *TopicPubl
 				},
 			},
 		}, grpc.Header(&header), grpc.Trailer(&trailer))
-		numGrpcStreams.Add(-1)
+		topicManager.NumGrpcStreams.Add(-1)
 		if err != nil {
 			return momentoerrors.ConvertSvcErr(err, header, trailer)
 		}

@@ -97,9 +97,11 @@ func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 		select {
 		case <-ctx.Done():
 			// Context has been canceled, return an error
+			s.topicManager.NumGrpcStreams.Add(-1)
 			return nil, ctx.Err()
 		case <-s.cancelContext.Done():
 			// Context has been canceled, return an error
+			s.topicManager.NumGrpcStreams.Add(-1)
 			return nil, s.cancelContext.Err()
 		default:
 			// Proceed as is
@@ -111,17 +113,20 @@ func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 			case <-ctx.Done():
 				{
 					s.log.Info("Subscription context is done; closing subscription.")
+					s.topicManager.NumGrpcStreams.Add(-1)
 					return nil, ctx.Err()
 				}
 			case <-s.cancelContext.Done():
 				{
 					s.log.Info("Subscription context is cancelled; closing subscription.")
+					s.topicManager.NumGrpcStreams.Add(-1)
 					return nil, s.cancelContext.Err()
 				}
 			default:
 				{
 					// Attempt to reconnect
 					s.log.Error("stream disconnected YO, attempting to reconnect err:", fmt.Sprint(err))
+					s.topicManager.NumGrpcStreams.Add(-1)
 					s.attemptReconnect(ctx)
 				}
 			}
@@ -185,6 +190,6 @@ func (s *topicSubscription) attemptReconnect(ctx context.Context) {
 }
 
 func (s *topicSubscription) Close() {
-	numGrpcStreams.Add(-1)
+	s.topicManager.NumGrpcStreams.Add(-1)
 	s.cancelFunction()
 }
