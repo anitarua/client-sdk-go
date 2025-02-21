@@ -52,7 +52,7 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 		numChannels = 1
 	}
 	streamTopicManagers := make([]*grpcmanagers.TopicGrpcManager, 0)
-	var subscriptionsDistribution *sync.Map
+	subscriptionsDistribution := &sync.Map{}
 
 	// NOTE: This is hard-coded for now but we may want to expose it via TopicConfiguration in the future,
 	// as we do with some of the other clients. Defaults to keep-alive pings enabled.
@@ -207,13 +207,5 @@ func (client *pubSubClient) close() {
 	numGrpcStreams.Add(-numGrpcStreams.Load())
 	for clientIndex := range client.streamTopicManagers {
 		defer client.streamTopicManagers[clientIndex].Close()
-	}
-}
-
-func checkNumConcurrentStreams(log logger.MomentoLogger) {
-	if numGrpcStreams.Load() > 0 && numGrpcStreams.Load() >= int64(numChannels*100) {
-		log.Warn("Number of grpc streams: %d; number of channels: %d; max concurrent streams: %d; Already at maximum number of concurrent grpc streams, cannot make new publish or subscribe requests",
-			numGrpcStreams.Load(), numChannels, numChannels*100,
-		)
 	}
 }
