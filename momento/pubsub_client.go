@@ -82,6 +82,14 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 				printout += fmt.Sprintf("Channel %d: %d subscriptions\n", i, count.(int))
 			}
 			request.Log.Debug(printout)
+
+			// also print out the number of grpc streams in use per channel
+			printout = ""
+			for i := 0; uint32(i) < numChannels; i++ {
+				topicManager := streamTopicManagers[i]
+				count := topicManager.NumGrpcStreams.Load()
+				printout += fmt.Sprintf("Channel %d: %d occupied multiplex streams\n", i, count)
+			}
 		}
 	}()
 
@@ -110,12 +118,13 @@ func (client *pubSubClient) getNextStreamTopicManager(isSubscription bool) (*grp
 				incremented = client.subscriptionsDistribution.CompareAndSwap(int(nextManagerIndex), currentCount, incrementedCount)
 			}
 		}
-	} else {
-		currentNumStreams := topicManager.NumGrpcStreams.Load()
-		if currentNumStreams > 100 {
-			client.log.Debug("Publish queued on channel %d which has %d occupied streams", nextManagerIndex, currentNumStreams)
-		}
 	}
+	// else {
+	// 	currentNumStreams := topicManager.NumGrpcStreams.Load()
+	// 	if currentNumStreams > 100 {
+	// 		client.log.Debug("Publish queued on channel %d which has %d occupied streams", nextManagerIndex, currentNumStreams)
+	// 	}
+	// }
 	return topicManager, nextManagerIndex, nil
 	// } else {
 	// 	topicManager.NumGrpcStreams.Add(-1)
