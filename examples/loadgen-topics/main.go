@@ -154,7 +154,7 @@ func publishMessages(
 				CacheName: cacheName,
 				TopicName: topicName,
 				Value: momento.String(
-					fmt.Sprintf("%s%s", strconv.FormatInt(time.Now().UnixMilli(), 10), messageValue),
+					fmt.Sprintf("%s%s-%d", strconv.FormatInt(time.Now().UnixMilli(), 10), messageValue, id),
 				),
 			})
 			if err != nil {
