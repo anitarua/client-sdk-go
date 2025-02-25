@@ -190,6 +190,16 @@ func pollForMessages(
 				elapsed := time.Now().UnixMilli() - timestamp
 				subscribeChan <- elapsed
 			}
+			// see if we receive a message from a one-off laptop publish
+			userId, err := strconv.Atoi(strings.Split(fmt.Sprintf("%v", item), "-")[1])
+			if err != nil {
+				fmt.Printf("error parsing user id: %v\n", err)
+				return
+			} else {
+				if userId == 9999 {
+					fmt.Println("received one-off mesage")
+				}
+			}
 		}
 	}
 }
