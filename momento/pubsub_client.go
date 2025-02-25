@@ -120,7 +120,11 @@ func (client *pubSubClient) getNextStreamTopicManager(isSubscription bool) (*grp
 			currentCount, ok := client.subscriptionsDistribution.Load(int(nextManagerIndex))
 			if ok {
 				incrementedCount := currentCount.(int) + 1
-				incremented = client.subscriptionsDistribution.CompareAndSwap(int(nextManagerIndex), currentCount, incrementedCount)
+				if incrementedCount < 100 {
+					incremented = client.subscriptionsDistribution.CompareAndSwap(int(nextManagerIndex), currentCount, incrementedCount)
+				} else {
+					client.log.Warn("Rejecting subscriptions %d on topic manager %d", incrementedCount, nextManagerIndex)
+				}
 			}
 		}
 	}

@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"math"
 	"math/rand"
-	"runtime"
 	"strconv"
 	"strings"
 	"sync"
@@ -217,8 +216,6 @@ func printStats(
 	publishErrorCounter ErrorCounter,
 	startTime time.Duration,
 ) {
-	fmt.Println("[num goroutines]: ", runtime.NumGoroutine())
-
 	successfulSubscriptionRequests := subscribes.TotalCount()
 	totalSubscriptionRequests := successfulSubscriptionRequests +
 		subscribeErrorCounter.timeout +
@@ -329,7 +326,6 @@ func timer(
 		select {
 		case <-ctx.Done():
 			fmt.Println("\n=====> run complete <=====")
-			fmt.Println("[num goroutines]: ", runtime.NumGoroutine())
 			printStats(subscribeHistogram, publishHistogram, subscribeErrorCounter, publishErrorCounter, origStartTime)
 			return
 		case subscribeMessage := <-subscribeChan:
