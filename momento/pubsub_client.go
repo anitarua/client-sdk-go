@@ -73,7 +73,8 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 	go func() {
 		for {
 			// sleep for 15 seconds
-			time.Sleep(15 * time.Second)
+			// time.Sleep(15 * time.Second)
+			<-time.After(30 * time.Second)
 
 			// print out the number of subscriptions per channel
 			printout := "\n"
@@ -93,6 +94,9 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 			request.Log.Debug(printout)
 		}
 	}()
+
+	// Also occasionally print out memory usage
+	go NewMonitor(30)
 
 	return &pubSubClient{
 		streamTopicManagers:       streamTopicManagers,
