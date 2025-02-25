@@ -122,6 +122,9 @@ func (client *pubSubClient) getNextStreamTopicManager(isSubscription bool) (*grp
 				incrementedCount := currentCount.(int) + 1
 				if incrementedCount < 100 {
 					incremented = client.subscriptionsDistribution.CompareAndSwap(int(nextManagerIndex), currentCount, incrementedCount)
+				} else {
+					// If this channel is maxed out, try the next one
+					nextManagerIndex = streamTopicManagerCount.Add(1) % uint64(numGrpcManagers)
 				}
 			}
 		}
