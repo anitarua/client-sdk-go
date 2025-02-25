@@ -184,6 +184,7 @@ func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSu
 func (client *pubSubClient) topicPublish(ctx context.Context, request *TopicPublishRequest) error {
 	topicManager, _, grpcErr := client.getNextStreamTopicManager(false)
 	if grpcErr != nil {
+		client.log.Debug("Publish error getting topic manager: %v", grpcErr)
 		return grpcErr
 	}
 

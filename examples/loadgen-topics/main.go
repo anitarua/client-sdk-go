@@ -146,6 +146,7 @@ func publishMessages(
 	for {
 		select {
 		case <-ctx.Done():
+			fmt.Printf("user %d done, any error? %s\n", id, ctx.Err())
 			return
 		default:
 			publishStart := hrtime.Now()
