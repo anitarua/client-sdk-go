@@ -217,11 +217,12 @@ func processError(err error, errChan chan string) {
 			mErr.Code() == momento.LimitExceededError {
 			errChan <- mErr.Code()
 		} else {
-			panic(fmt.Sprintf("unrecognized result: %T", mErr))
+			// panic(fmt.Sprintf("unrecognized result: %T", mErr))
+			fmt.Println("unrecognized result:", mErr.Error())
 		}
 	default:
 		// panic(fmt.Sprintf("unknown error type %T", err))
-		// fmt.Printf("unknown error type %T\n", err)
+		fmt.Println("unknown error type:", err.Error())
 	}
 }
 
