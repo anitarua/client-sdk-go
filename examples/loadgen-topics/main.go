@@ -146,7 +146,7 @@ func publishMessages(
 	for {
 		select {
 		case <-ctx.Done():
-			fmt.Printf("user %d done via ctx.Done(), any error? %s\n", id, ctx.Err())
+			fmt.Printf("publisher %d done via ctx.Done(), any error? %s\n", id, ctx.Err())
 			return
 		default:
 			publishStart := hrtime.Now()
@@ -167,7 +167,7 @@ func publishMessages(
 		}
 	}
 	// IDE says this is unreachable code but worth a try
-	fmt.Printf("user %d done via exiting for loop\n", id)
+	fmt.Printf("publisher %d done via exiting for loop\n", id)
 }
 
 func pollForMessages(
@@ -177,15 +177,18 @@ func pollForMessages(
 	for {
 		select {
 		case <-ctx.Done():
+			fmt.Printf("subscriber %d done via ctx.Done(), any error? %s\n", id, ctx.Err())
 			return
 		default:
 			item, err := sub.Item(ctx)
 			if err != nil {
+				fmt.Printf("subscriber %d done via Item() error: %s\n", id, err.Error())
 				processError(err, subscribeErrChan)
 				return
 			}
 			timestamp, err := strconv.ParseInt(fmt.Sprintf("%v", item)[0:timestampLength], 10, 64)
 			if err != nil {
+				fmt.Printf("subscriber %d done via error parsing timestamp: %s\n", id, err.Error())
 				processError(err, subscribeErrChan)
 				return
 			} else {
@@ -204,6 +207,8 @@ func pollForMessages(
 			}
 		}
 	}
+	// probably unreachable but worth a try
+	fmt.Printf("subscriber %d done via exiting for loop\n", id)
 }
 
 func processError(err error, errChan chan string) {
@@ -428,7 +433,7 @@ func main() {
 	}
 
 	lgCfg := config.TopicsDefaultWithLogger(
-		momento_default_logger.NewDefaultMomentoLoggerFactory(momento_default_logger.DEBUG),
+		momento_default_logger.NewDefaultMomentoLoggerFactory(momento_default_logger.INFO),
 	).WithNumGrpcChannels(16)
 
 	loadGenerator := newLoadGenerator(lgCfg, opts)
