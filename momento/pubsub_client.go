@@ -153,9 +153,6 @@ func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSu
 		return nil, nil, nil, nil, 0, grpcErr
 	}
 
-	ctx, cancel := context.WithTimeout(ctx, client.requestTimeout)
-	defer cancel()
-
 	// add metadata to context
 	requestMetadata := internal.CreateMetadata(ctx, internal.Topic)
 
