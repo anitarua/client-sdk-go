@@ -21,6 +21,7 @@ import (
 )
 
 type pubSubClient struct {
+	requestTimeout            time.Duration
 	streamTopicManagers       []*grpcmanagers.TopicGrpcManager
 	endpoint                  string
 	log                       logger.MomentoLogger
@@ -96,9 +97,11 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 	}()
 
 	// Also occasionally print out memory usage
-	go NewMonitor(30)
+	// go NewMonitor(30)
 
 	return &pubSubClient{
+		// manually setting this while testing
+		requestTimeout:            time.Second * 5,
 		streamTopicManagers:       streamTopicManagers,
 		endpoint:                  request.CredentialProvider.GetCacheEndpoint(),
 		log:                       request.Log,
@@ -150,6 +153,9 @@ func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSu
 		return nil, nil, nil, nil, 0, grpcErr
 	}
 
+	ctx, cancel := context.WithTimeout(ctx, client.requestTimeout)
+	defer cancel()
+
 	// add metadata to context
 	requestMetadata := internal.CreateMetadata(ctx, internal.Topic)
 
@@ -187,6 +193,9 @@ func (client *pubSubClient) topicPublish(ctx context.Context, request *TopicPubl
 		client.log.Debug("Publish error getting topic manager: %v", grpcErr)
 		return grpcErr
 	}
+
+	ctx, cancel := context.WithTimeout(ctx, client.requestTimeout)
+	defer cancel()
 
 	requestMetadata := internal.CreateMetadata(ctx, internal.Topic)
 	var header, trailer metadata.MD

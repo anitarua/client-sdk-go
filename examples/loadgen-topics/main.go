@@ -420,7 +420,7 @@ func main() {
 		showStatsInterval: time.Second * 30,
 		// must be at least 13 to accommodate an epoch timestamp value to calculate latency
 		messageBytes:   13,
-		numberOfUsers:  1300,
+		numberOfUsers:  1500,
 		numberOfTopics: 1,
 		// maxPublishTps is per-user
 		maxPublishTps: 1,
@@ -429,7 +429,7 @@ func main() {
 
 	lgCfg := config.TopicsDefaultWithLogger(
 		momento_default_logger.NewDefaultMomentoLoggerFactory(momento_default_logger.DEBUG),
-	).WithNumGrpcChannels(14)
+	).WithNumGrpcChannels(16)
 
 	loadGenerator := newLoadGenerator(lgCfg, opts)
 	client, cacheClient := loadGenerator.init(ctx)
