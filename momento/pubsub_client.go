@@ -29,7 +29,8 @@ type pubSubClient struct {
 }
 
 var streamTopicManagerCount atomic.Uint64
-var numGrpcStreams atomic.Int64
+
+// var numGrpcStreams atomic.Int64
 var numChannels uint32
 
 func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, momentoerrors.MomentoSvcErr) {
@@ -86,13 +87,13 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 			request.Log.Info(printout)
 
 			// also print out the number of grpc streams in use per channel
-			printout = "\n"
-			for i := 0; uint32(i) < numChannels; i++ {
-				topicManager := streamTopicManagers[i]
-				count := topicManager.NumGrpcStreams.Load()
-				printout += fmt.Sprintf("Channel %d: %d occupied multiplex streams\n", i, count)
-			}
-			request.Log.Info(printout)
+			// printout = "\n"
+			// for i := 0; uint32(i) < numChannels; i++ {
+			// 	topicManager := streamTopicManagers[i]
+			// 	count := topicManager.NumGrpcStreams.Load()
+			// 	printout += fmt.Sprintf("Channel %d: %d occupied multiplex streams\n", i, count)
+			// }
+			// request.Log.Info(printout)
 		}
 	}()
 
@@ -177,9 +178,9 @@ func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSu
 		return nil, nil, nil, nil, 0, momentoerrors.ConvertSvcErr(err, header, trailer)
 	}
 
-	if numGrpcStreams.Load() > 0 && (int64(numChannels*100)-numGrpcStreams.Load() < 10) {
-		client.log.Warn("WARNING: approaching grpc maximum concurrent stream limit, %d remaining of total %d streams\n", int64(numChannels*100)-numGrpcStreams.Load(), numChannels*100)
-	}
+	// if numGrpcStreams.Load() > 0 && (int64(numChannels*100)-numGrpcStreams.Load() < 10) {
+	// 	client.log.Warn("WARNING: approaching grpc maximum concurrent stream limit, %d remaining of total %d streams\n", int64(numChannels*100)-numGrpcStreams.Load(), numChannels*100)
+	// }
 
 	return topicManager, clientStream, cancelContext, cancelFunction, topicManagerId, err
 }
@@ -236,7 +237,7 @@ func (client *pubSubClient) topicPublish(ctx context.Context, request *TopicPubl
 }
 
 func (client *pubSubClient) close() {
-	numGrpcStreams.Add(-numGrpcStreams.Load())
+	// numGrpcStreams.Add(-numGrpcStreams.Load())
 	for clientIndex := range client.streamTopicManagers {
 		defer client.streamTopicManagers[clientIndex].Close()
 	}
