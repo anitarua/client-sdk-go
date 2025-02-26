@@ -108,7 +108,7 @@ func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSu
 	}
 
 	if numGrpcStreams.Load() > 0 && (int64(numChannels*100)-numGrpcStreams.Load() < 10) {
-		client.log.Warn("WARNING: approaching grpc maximum concurrent stream limit, %d remaining of total %d streams\n", int64(numChannels*100)-numGrpcStreams.Load(), numChannels*100)
+		client.log.Trace("WARNING: approaching grpc maximum concurrent stream limit, %d remaining of total %d streams\n", int64(numChannels*100)-numGrpcStreams.Load(), numChannels*100)
 	}
 
 	return topicManager, clientStream, cancelContext, cancelFunction, err
@@ -174,7 +174,7 @@ func (client *pubSubClient) close() {
 
 func checkNumConcurrentStreams(log logger.MomentoLogger) {
 	if numGrpcStreams.Load() > 0 && numGrpcStreams.Load() >= int64(numChannels*100) {
-		log.Warn("Number of grpc streams: %d; number of channels: %d; max concurrent streams: %d; Already at maximum number of concurrent grpc streams, cannot make new publish or subscribe requests",
+		log.Trace("Number of grpc streams: %d; number of channels: %d; max concurrent streams: %d; Already at maximum number of concurrent grpc streams, cannot make new publish or subscribe requests",
 			numGrpcStreams.Load(), numChannels, numChannels*100,
 		)
 	}
