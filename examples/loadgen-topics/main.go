@@ -146,7 +146,7 @@ func publishMessages(
 	for {
 		select {
 		case <-ctx.Done():
-			fmt.Printf("user %d done, any error? %s\n", id, ctx.Err())
+			fmt.Printf("user %d done via ctx.Done(), any error? %s\n", id, ctx.Err())
 			return
 		default:
 			publishStart := hrtime.Now()
@@ -166,6 +166,8 @@ func publishMessages(
 			time.Sleep(time.Millisecond * time.Duration(sleepMillis))
 		}
 	}
+	// IDE says this is unreachable code but worth a try
+	fmt.Printf("user %d done via exiting for loop\n", id)
 }
 
 func pollForMessages(
@@ -418,7 +420,7 @@ func main() {
 		showStatsInterval: time.Second * 30,
 		// must be at least 13 to accommodate an epoch timestamp value to calculate latency
 		messageBytes:   13,
-		numberOfUsers:  1500,
+		numberOfUsers:  1300,
 		numberOfTopics: 1,
 		// maxPublishTps is per-user
 		maxPublishTps: 1,
@@ -427,7 +429,7 @@ func main() {
 
 	lgCfg := config.TopicsDefaultWithLogger(
 		momento_default_logger.NewDefaultMomentoLoggerFactory(momento_default_logger.DEBUG),
-	).WithNumGrpcChannels(16)
+	).WithNumGrpcChannels(14)
 
 	loadGenerator := newLoadGenerator(lgCfg, opts)
 	client, cacheClient := loadGenerator.init(ctx)
