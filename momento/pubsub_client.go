@@ -4,6 +4,7 @@ import (
 	"context"
 	"math"
 	"sync/atomic"
+	"time"
 
 	"github.com/momentohq/client-sdk-go/config"
 	"github.com/momentohq/client-sdk-go/config/logger"
@@ -115,6 +116,10 @@ func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSu
 
 func (client *pubSubClient) topicPublish(ctx context.Context, request *TopicPublishRequest) error {
 	checkNumConcurrentStreams(client.log)
+
+	// is this the only fix needed?
+	ctx, cancel := context.WithTimeout(ctx, time.Second*5)
+	defer cancel()
 
 	requestMetadata := internal.CreateMetadata(ctx, internal.Topic)
 	topicManager := client.getNextStreamTopicManager()
