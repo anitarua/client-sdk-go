@@ -83,7 +83,7 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 				count, _ := subscriptionsDistribution.Load(i)
 				printout += fmt.Sprintf("Channel %d: %d subscriptions\n", i, count.(int))
 			}
-			request.Log.Debug(printout)
+			request.Log.Info(printout)
 
 			// also print out the number of grpc streams in use per channel
 			printout = "\n"
@@ -92,7 +92,7 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 				count := topicManager.NumGrpcStreams.Load()
 				printout += fmt.Sprintf("Channel %d: %d occupied multiplex streams\n", i, count)
 			}
-			request.Log.Debug(printout)
+			request.Log.Info(printout)
 		}
 	}()
 
