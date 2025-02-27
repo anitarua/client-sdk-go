@@ -141,6 +141,7 @@ func (s *topicSubscription) Event(ctx context.Context) (TopicEvent, error) {
 					// Attempt to reconnect
 					s.log.Error("stream disconnected YO, attempting to reconnect err:", fmt.Sprint(err))
 					s.decrementSubscriptionCount()
+					s.cancelFunction()
 					s.attemptReconnect(ctx)
 				}
 			}
