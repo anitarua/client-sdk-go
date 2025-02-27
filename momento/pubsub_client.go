@@ -107,15 +107,15 @@ func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSu
 		return nil, nil, nil, nil, momentoerrors.ConvertSvcErr(err, header, trailer)
 	}
 
-	if numGrpcStreams.Load() > 0 && (int64(numChannels*100)-numGrpcStreams.Load() < 10) {
-		client.log.Trace("WARNING: approaching grpc maximum concurrent stream limit, %d remaining of total %d streams\n", int64(numChannels*100)-numGrpcStreams.Load(), numChannels*100)
-	}
+	// if numGrpcStreams.Load() > 0 && (int64(numChannels*100)-numGrpcStreams.Load() < 10) {
+	// 	client.log.Trace("WARNING: approaching grpc maximum concurrent stream limit, %d remaining of total %d streams\n", int64(numChannels*100)-numGrpcStreams.Load(), numChannels*100)
+	// }
 
 	return topicManager, clientStream, cancelContext, cancelFunction, err
 }
 
 func (client *pubSubClient) topicPublish(ctx context.Context, request *TopicPublishRequest) error {
-	checkNumConcurrentStreams(client.log)
+	// checkNumConcurrentStreams(client.log)
 
 	// is this the only fix needed?
 	ctx, cancel := context.WithTimeout(ctx, time.Second*5)
@@ -173,9 +173,8 @@ func (client *pubSubClient) close() {
 }
 
 func checkNumConcurrentStreams(log logger.MomentoLogger) {
-	if numGrpcStreams.Load() > 0 && numGrpcStreams.Load() >= int64(numChannels*100) {
-		log.Trace("Number of grpc streams: %d; number of channels: %d; max concurrent streams: %d; Already at maximum number of concurrent grpc streams, cannot make new publish or subscribe requests",
-			numGrpcStreams.Load(), numChannels, numChannels*100,
-		)
+	maxStreams := numChannels * 100
+	if numGrpcStreams.Load() >= int64(maxStreams) {
+		log.Warn("Number of grpc streams: %d; number of channels: %d; max concurrent streams: %d; Trying to make new subscription when already at max concurrent streams", numGrpcStreams.Load(), numChannels, maxStreams)
 	}
 }
