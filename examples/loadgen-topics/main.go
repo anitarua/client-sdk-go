@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"math"
-	"math/rand"
 	"strconv"
 	"strings"
 	"sync"
@@ -24,14 +23,15 @@ const (
 )
 
 type topicsLoadGeneratorOptions struct {
-	cacheName         string
-	logLevel          momento_default_logger.LogLevel
-	showStatsInterval time.Duration
-	messageBytes      int
-	numberOfUsers     int
-	numberOfTopics    int
-	maxPublishTps     int
-	howLongToRun      time.Duration
+	cacheName           string
+	logLevel            momento_default_logger.LogLevel
+	showStatsInterval   time.Duration
+	messageBytes        int
+	numberOfPublishers  int
+	numberOfSubscribers int
+	numberOfTopics      int
+	maxPublishTps       int
+	howLongToRun        time.Duration
 }
 
 type loadGenerator struct {
@@ -106,18 +106,30 @@ func (ec *ErrorCounter) updateErrors(err string) {
 	}
 }
 
-func user(
+func publisher(
 	ctx context.Context,
 	id int,
-	subscribeChan chan int64,
 	publishChan chan int64,
-	subscribeErrChan chan string,
 	publishErrChan chan string,
 	client momento.TopicClient,
 	cacheName string,
 	topicName string,
 	messageValue string,
 	publishTps int,
+) {
+	go func() {
+		publishMessages(ctx, id, publishChan, publishErrChan, client, cacheName, topicName, messageValue, publishTps)
+	}()
+}
+
+func subscriber(
+	ctx context.Context,
+	id int,
+	subscribeChan chan int64,
+	subscribeErrChan chan string,
+	client momento.TopicClient,
+	cacheName string,
+	topicName string,
 ) {
 	subscription, err := client.Subscribe(ctx, &momento.TopicSubscribeRequest{
 		CacheName: cacheName,
@@ -127,9 +139,6 @@ func user(
 		panic(err)
 	}
 	go func() { pollForMessages(ctx, id, subscription, subscribeChan, subscribeErrChan) }()
-	go func() {
-		publishMessages(ctx, id, publishChan, publishErrChan, client, cacheName, topicName, messageValue, publishTps)
-	}()
 }
 
 func publishMessages(
@@ -166,8 +175,6 @@ func publishMessages(
 			time.Sleep(time.Millisecond * time.Duration(sleepMillis))
 		}
 	}
-	// IDE says this is unreachable code but worth a try
-	fmt.Printf("publisher %d done via exiting for loop\n", id)
 }
 
 func pollForMessages(
@@ -207,8 +214,6 @@ func pollForMessages(
 			}
 		}
 	}
-	// probably unreachable but worth a try
-	fmt.Printf("subscriber %d done via exiting for loop\n", id)
 }
 
 func processError(err error, errChan chan string) {
@@ -369,10 +374,10 @@ func (r *loadGenerator) run(ctx context.Context, client momento.TopicClient) {
 	defer cancelFunction()
 
 	var wg sync.WaitGroup
-	subscribeChan := make(chan int64, r.options.numberOfUsers)
-	publishChan := make(chan int64, r.options.numberOfUsers)
-	subscribeErrChan := make(chan string, r.options.numberOfUsers)
-	publishErrChan := make(chan string, r.options.numberOfUsers)
+	subscribeChan := make(chan int64, r.options.numberOfSubscribers)
+	publishChan := make(chan int64, r.options.numberOfPublishers)
+	subscribeErrChan := make(chan string, r.options.numberOfSubscribers)
+	publishErrChan := make(chan string, r.options.numberOfPublishers)
 
 	wg.Add(1)
 	go func() {
@@ -380,33 +385,41 @@ func (r *loadGenerator) run(ctx context.Context, client momento.TopicClient) {
 		timer(cancelContext, subscribeChan, publishChan, subscribeErrChan, publishErrChan, r.options.showStatsInterval)
 	}()
 
-	// Launch and run users. Each user subscribes to a random topic over which it
-	// publishes and receives.
-	randSeed := rand.NewSource(time.Now().UnixNano())
-	randGenerator := rand.New(randSeed)
+	topicName := "topic-anita-test"
 
-	for i := 1; i <= r.options.numberOfUsers; i++ {
-
-		// choose a topic at random
-		topicName := fmt.Sprintf("topic-%d", randGenerator.Intn(r.options.numberOfTopics))
-
-		// USER GOROUTINES
+	for i := 1; i <= r.options.numberOfPublishers; i++ {
+		// separate variable for closure
 		i := i
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
-			user(
+			publisher(
 				cancelContext,
 				i,
-				subscribeChan,
 				publishChan,
-				subscribeErrChan,
 				publishErrChan,
 				client,
 				r.options.cacheName,
 				topicName,
 				r.messageValue,
 				r.options.maxPublishTps,
+			)
+		}()
+	}
+
+	for j := 1; j <= r.options.numberOfSubscribers; j++ {
+		j := j
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			subscriber(
+				cancelContext,
+				j,
+				subscribeChan,
+				subscribeErrChan,
+				client,
+				r.options.cacheName,
+				topicName,
 			)
 		}()
 	}
@@ -424,9 +437,10 @@ func main() {
 		logLevel:          momento_default_logger.DEBUG,
 		showStatsInterval: time.Second * 30,
 		// must be at least 13 to accommodate an epoch timestamp value to calculate latency
-		messageBytes:   13,
-		numberOfUsers:  1500,
-		numberOfTopics: 1,
+		messageBytes:        13,
+		numberOfSubscribers: 1500,
+		numberOfPublishers:  1500,
+		numberOfTopics:      1,
 		// maxPublishTps is per-user
 		maxPublishTps: 1,
 		howLongToRun:  time.Minute * 15,
