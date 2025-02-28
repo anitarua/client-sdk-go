@@ -57,7 +57,7 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 		streamTopicManager, err := grpcmanagers.NewStreamTopicGrpcManager(&models.TopicStreamGrpcManagerRequest{
 			CredentialProvider: request.CredentialProvider,
 			GrpcConfiguration:  grpcConfig,
-		})
+		}, i)
 		if err != nil {
 			return nil, err
 		}
@@ -71,16 +71,25 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 	}, nil
 }
 
-func (client *pubSubClient) getNextStreamTopicManager() *grpcmanagers.TopicGrpcManager {
+func (client *pubSubClient) getNextStreamTopicManager(isSubscribe bool) *grpcmanagers.TopicGrpcManager {
 	nextManagerIndex := streamTopicManagerCount.Add(1)
 	topicManager := client.streamTopicManagers[nextManagerIndex%uint64(len(client.streamTopicManagers))]
+	if isSubscribe {
+		newCount := topicManager.NumActiveSubscriptions.Add(1)
+		if newCount > 99 {
+			client.log.Warn("Subscribe request queueing up on channel %d with %d active subscriptions", topicManager.ManagerId, newCount)
+		}
+	} else {
+		// it's a publish and we want to know if it's queued up
+		numSubs := topicManager.NumActiveSubscriptions.Load()
+		if numSubs > 99 {
+			client.log.Warn("Publish request queueing up on channel %d with %d active subscriptions", topicManager.ManagerId, numSubs)
+		}
+	}
 	return topicManager
 }
 
 func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSubscribeRequest) (*grpcmanagers.TopicGrpcManager, grpc.ClientStream, context.Context, context.CancelFunc, error) {
-
-	checkNumConcurrentStreams(client.log)
-
 	// add metadata to context
 	requestMetadata := internal.CreateMetadata(ctx, internal.Topic)
 
@@ -88,8 +97,7 @@ func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSu
 	cancelContext, cancelFunction := context.WithCancel(requestMetadata)
 
 	var header, trailer metadata.MD
-	numGrpcStreams.Add(1)
-	topicManager := client.getNextStreamTopicManager()
+	topicManager := client.getNextStreamTopicManager(true)
 	clientStream, err := topicManager.StreamClient.Subscribe(cancelContext, &pb.XSubscriptionRequest{
 		CacheName:                   request.CacheName,
 		Topic:                       request.TopicName,
@@ -98,7 +106,6 @@ func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSu
 	})
 
 	if err != nil {
-		numGrpcStreams.Add(-1)
 		cancelFunction()
 		if clientStream != nil {
 			header, _ = clientStream.Header()
@@ -106,27 +113,19 @@ func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSu
 		}
 		return nil, nil, nil, nil, momentoerrors.ConvertSvcErr(err, header, trailer)
 	}
-
-	// if numGrpcStreams.Load() > 0 && (int64(numChannels*100)-numGrpcStreams.Load() < 10) {
-	// 	client.log.Trace("WARNING: approaching grpc maximum concurrent stream limit, %d remaining of total %d streams\n", int64(numChannels*100)-numGrpcStreams.Load(), numChannels*100)
-	// }
-
 	return topicManager, clientStream, cancelContext, cancelFunction, err
 }
 
 func (client *pubSubClient) topicPublish(ctx context.Context, request *TopicPublishRequest) error {
-	// checkNumConcurrentStreams(client.log)
-
-	// is this the only fix needed?
+	// make sure to add grpc deadline to request
 	ctx, cancel := context.WithTimeout(ctx, time.Second*5)
 	defer cancel()
 
 	requestMetadata := internal.CreateMetadata(ctx, internal.Topic)
-	topicManager := client.getNextStreamTopicManager()
+	topicManager := client.getNextStreamTopicManager(false)
 	var header, trailer metadata.MD
 	switch value := request.Value.(type) {
 	case String:
-		numGrpcStreams.Add(1)
 		_, err := topicManager.StreamClient.Publish(requestMetadata, &pb.XPublishRequest{
 			CacheName: request.CacheName,
 			Topic:     request.TopicName,
@@ -136,13 +135,11 @@ func (client *pubSubClient) topicPublish(ctx context.Context, request *TopicPubl
 				},
 			},
 		}, grpc.Header(&header), grpc.Trailer(&trailer))
-		numGrpcStreams.Add(-1)
 		if err != nil {
 			return momentoerrors.ConvertSvcErr(err, header, trailer)
 		}
 		return err
 	case Bytes:
-		numGrpcStreams.Add(1)
 		_, err := topicManager.StreamClient.Publish(requestMetadata, &pb.XPublishRequest{
 			CacheName: request.CacheName,
 			Topic:     request.TopicName,
@@ -152,7 +149,6 @@ func (client *pubSubClient) topicPublish(ctx context.Context, request *TopicPubl
 				},
 			},
 		}, grpc.Header(&header), grpc.Trailer(&trailer))
-		numGrpcStreams.Add(-1)
 		if err != nil {
 			return momentoerrors.ConvertSvcErr(err, header, trailer)
 		}
@@ -169,12 +165,5 @@ func (client *pubSubClient) close() {
 	numGrpcStreams.Add(-numGrpcStreams.Load())
 	for clientIndex := range client.streamTopicManagers {
 		defer client.streamTopicManagers[clientIndex].Close()
-	}
-}
-
-func checkNumConcurrentStreams(log logger.MomentoLogger) {
-	maxStreams := numChannels * 100
-	if numGrpcStreams.Load() >= int64(maxStreams) {
-		log.Warn("Number of grpc streams: %d; number of channels: %d; max concurrent streams: %d; Trying to make new subscription when already at max concurrent streams", numGrpcStreams.Load(), numChannels, maxStreams)
 	}
 }

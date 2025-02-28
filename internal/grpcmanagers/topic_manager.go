@@ -1,6 +1,10 @@
 package grpcmanagers
 
 import (
+	"fmt"
+	"sync/atomic"
+	"time"
+
 	"github.com/momentohq/client-sdk-go/internal/interceptor"
 	"github.com/momentohq/client-sdk-go/internal/models"
 	"github.com/momentohq/client-sdk-go/internal/momentoerrors"
@@ -9,11 +13,13 @@ import (
 )
 
 type TopicGrpcManager struct {
-	Conn         *grpc.ClientConn
-	StreamClient pb.PubsubClient
+	Conn                   *grpc.ClientConn
+	StreamClient           pb.PubsubClient
+	NumActiveSubscriptions atomic.Int64
+	ManagerId              int
 }
 
-func NewStreamTopicGrpcManager(request *models.TopicStreamGrpcManagerRequest) (*TopicGrpcManager, momentoerrors.MomentoSvcErr) {
+func NewStreamTopicGrpcManager(request *models.TopicStreamGrpcManagerRequest, id int) (*TopicGrpcManager, momentoerrors.MomentoSvcErr) {
 	endpoint := request.CredentialProvider.GetCacheEndpoint()
 	authToken := request.CredentialProvider.GetAuthToken()
 
@@ -34,12 +40,25 @@ func NewStreamTopicGrpcManager(request *models.TopicStreamGrpcManagerRequest) (*
 	if err != nil {
 		return nil, momentoerrors.ConvertSvcErr(err)
 	}
-	return &TopicGrpcManager{
+
+	newTopicManager := &TopicGrpcManager{
 		Conn:         conn,
 		StreamClient: pb.NewPubsubClient(conn),
-	}, nil
+		ManagerId:    id,
+	}
+
+	// occasionally print number of active subscriptions
+	go func() {
+		for {
+			<-time.After(15 * time.Second)
+			fmt.Printf("Channel %d active subscriptions: %d\n", newTopicManager.ManagerId, newTopicManager.NumActiveSubscriptions.Load())
+		}
+	}()
+
+	return newTopicManager, nil
 }
 
 func (topicManager *TopicGrpcManager) Close() momentoerrors.MomentoSvcErr {
+	topicManager.NumActiveSubscriptions.Store(0)
 	return momentoerrors.ConvertSvcErr(topicManager.Conn.Close())
 }
