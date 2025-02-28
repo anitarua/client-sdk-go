@@ -106,6 +106,7 @@ func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSu
 	})
 
 	if err != nil {
+		topicManager.NumActiveSubscriptions.Add(-1)
 		cancelFunction()
 		if clientStream != nil {
 			header, _ = clientStream.Header()
