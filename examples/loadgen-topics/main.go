@@ -195,9 +195,7 @@ func pollForMessages(
 			}
 			timestamp, err := strconv.ParseInt(fmt.Sprintf("%v", item)[0:timestampLength], 10, 64)
 			if err != nil {
-				fmt.Printf("subscriber %d done via error parsing timestamp: %s\n", id, err.Error())
 				processError(err, subscribeErrChan)
-				return
 			} else {
 				elapsed := time.Now().UnixMilli() - timestamp
 				subscribeChan <- elapsed
@@ -206,7 +204,6 @@ func pollForMessages(
 			userId, err := strconv.Atoi(strings.Split(fmt.Sprintf("%v", item), "-")[1])
 			if err != nil {
 				fmt.Printf("error parsing user id: %v\n", err)
-				return
 			} else {
 				if userId == 9999 {
 					fmt.Println("received one-off mesage")
