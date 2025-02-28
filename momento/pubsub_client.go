@@ -71,22 +71,45 @@ func newPubSubClient(request *models.PubSubClientRequest) (*pubSubClient, moment
 	}, nil
 }
 
+// Ensure
 func (client *pubSubClient) getNextStreamTopicManager(isSubscribe bool) *grpcmanagers.TopicGrpcManager {
-	nextManagerIndex := streamTopicManagerCount.Add(1)
-	topicManager := client.streamTopicManagers[nextManagerIndex%uint64(len(client.streamTopicManagers))]
+	// This version will actually find the next channel with 98 or fewer active subscriptions.
+	// Going to enforce leaving 2 slots open on each channel to allow publishes through.
+
 	if isSubscribe {
-		newCount := topicManager.NumActiveSubscriptions.Add(1)
-		if newCount > 99 {
-			client.log.Warn("Subscribe request queueing up on channel %d with %d active subscriptions", topicManager.ManagerId, newCount)
+		// because publish requests can also increment the streamTopicManagerCount, we're not guaranteed to loop
+		// over all grpc managers in a round robin fashion, so just try to keep looping until we find a channel
+		for {
+			nextManagerIndex := streamTopicManagerCount.Add(1)
+			topicManager := client.streamTopicManagers[nextManagerIndex%uint64(len(client.streamTopicManagers))]
+			newCount := topicManager.NumActiveSubscriptions.Add(1)
+			if newCount < 99 {
+				return topicManager
+			}
+			topicManager.NumActiveSubscriptions.Add(-1)
 		}
 	} else {
-		// it's a publish and we want to know if it's queued up
-		numSubs := topicManager.NumActiveSubscriptions.Load()
-		if numSubs > 99 {
-			client.log.Warn("Publish request queueing up on channel %d with %d active subscriptions", topicManager.ManagerId, numSubs)
-		}
+		nextManagerIndex := streamTopicManagerCount.Add(1)
+		topicManager := client.streamTopicManagers[nextManagerIndex%uint64(len(client.streamTopicManagers))]
+		return topicManager
 	}
-	return topicManager
+
+	// This version below only logs when channels are full
+	// nextManagerIndex := streamTopicManagerCount.Add(1)
+	// topicManager := client.streamTopicManagers[nextManagerIndex%uint64(len(client.streamTopicManagers))]
+	// if isSubscribe {
+	// 	newCount := topicManager.NumActiveSubscriptions.Add(1)
+	// 	if newCount > 99 {
+	// 		client.log.Warn("Subscribe request queueing up on channel %d with %d active subscriptions", topicManager.ManagerId, newCount)
+	// 	}
+	// } else {
+	// 	// it's a publish and we want to know if it's queued up
+	// 	numSubs := topicManager.NumActiveSubscriptions.Load()
+	// 	if numSubs > 99 {
+	// 		client.log.Warn("Publish request queueing up on channel %d with %d active subscriptions", topicManager.ManagerId, numSubs)
+	// 	}
+	// }
+	// return topicManager
 }
 
 func (client *pubSubClient) topicSubscribe(ctx context.Context, request *TopicSubscribeRequest) (*grpcmanagers.TopicGrpcManager, grpc.ClientStream, context.Context, context.CancelFunc, error) {
